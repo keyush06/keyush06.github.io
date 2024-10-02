@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
 body {
+    background: linear-gradient(to right, #f8f9fa, #e0eafc);
 	color: #333;
 	font-family: "Open Sans", sans-serif;
 	line-height: 1.5;
@@ -11,30 +12,35 @@ body {
 
 #profile_pic {
 	float: right;
-	width: 130px;
+	width: 180px;  /* Increased profile picture size */
+	border-radius: 10%;
+	border: 2px solid #007acc;
+	box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 h1, h2 {
-	color: #000;
+	color: #000;  /* Changed headings to black */
 	font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Cambria, Georgia, serif;
 	font-weight: normal;
 }
 
 h1 {
-	font-size: 3rem;
+	font-size: 3.5rem;
 	margin-top: 2.0rem;
 	margin-bottom: 1.0rem;
 	line-height: 1.0;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 h2 {
-	font-size: 2rem;
+	font-size: 2.5rem;
 	margin-top: 3rem;
 	margin-bottom: 0.5rem;
 }
 
 h3 {
 	font-weight: normal;
+    color: #444;
 }
 
 th {
@@ -47,17 +53,34 @@ li {
 	margin: 1rem 0;
 }
 
+/* General link styling for the entire page */
 a {
-	color: green;
-	text-decoration: none;
+    color: #007acc;  /* Default link color (blue) */
+    text-decoration: none;
+    font-weight: bold;
 }
 
 a:active, a:focus, a:hover {
-	border-bottom: solid 2px;
+    border-bottom: solid 2px;
+    color: #ff3b3b;  /* Dark red hover effect */
 }
 
+/* Styling for the red links */
+.red-link {
+    color: #ff6b6b;  /* Light red color for top 4 links */
+}
+
+.red-link:hover {
+    color: #ff3b3b;  /* Darker red when hovering */
+}
+
+/* Visited link styling */
 a:visited {
-	color: green;
+    color: #007acc;  /* Keep visited links blue */
+}
+
+.red-link:visited {
+    color: #ff6b6b;  /* Keep visited red links red */
 }
 
 u {
@@ -71,8 +94,42 @@ b {
 
 footer {
 	margin-top: 3rem;
-	color: #888;
+	color: #fff;
 	font-size: 0.9rem;
 	text-align: center;
+	background-color: #333;
+	padding: 1rem;
+	border-radius: 5px;
 }
 
+.horizontal-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    background-color: #f1f1f1;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 1rem;
+}
+
+.horizontal-list li {
+    display: inline-block;
+    margin-right: 50px;
+    text-align: center;
+    width: 150px;
+}
+
+.horizontal-list li:hover {
+    background-color: #eef4ff;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+img {
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
