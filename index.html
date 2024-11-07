@@ -152,6 +152,26 @@
 	<ol>
 
 	<li>
+		<h3>Instance Segmentation: By location</h3>
+		<img src="assets\ins_segmentation.jpeg" alt="Intsance Segmentation Pic" style="width:300px;"><br>
+		I implemented an advanced instance segmentation framework inspired by the SOLO (Segmenting Objects by Locations) model. It features a ResNet backbone for robust feature extraction and a Feature Pyramid Network (FPN) to handle multi-scale object representations efficiently.
+
+		The architecture consists of two main branches. The Category Prediction Branch assigns pixels to grid-based instance categories, leveraging spatial information to effectively localize and distinguish objects of varying sizes. Meanwhile, the Mask Segmentation Branch generates accurate binary masks using a spatially sensitive, fully convolutional network, eliminating the need for traditional bounding boxes or complex post-processing.
+
+		This end-to-end trainable system simplifies the segmentation pipeline, learning directly from mask annotations to enhance efficiency and deliver high performance across diverse object segmentation tasks. <br>
+		<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
+
+		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
+		| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
+		| <a href="https://github.com/keyush06/Segmenting-Objects-by-Location">code</a>
+		| <a href="https://arxiv.org/abs/2106.15947">Reference Paper</a>
+
+		<!-- | <a href="https://relbench.stanford.edu">website</a>
+		| <a href="assets/2023_icml_rdl/cite.txt">cite</a> -->
+	</li>
+
+
+	<li>
 		<h3>Marvel Bot</h3>
 		<img src="assets/marvel.jpeg" alt="Marvel Image" style="width:300px;"><br>
 		Engineered a conversational LLM app using LangChain and RAG, integrating Ollama to optimize three quantized models. Web scraped 4+ Marvel Wikipedia pages and deployed the solution on Streamlit, ensuring real-time, context-aware responses and efficient memory usage. <br>
