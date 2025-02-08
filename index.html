@@ -186,16 +186,96 @@
 
 	</ol>
 
+	<h2>Portfolio of Selected Projects</h2>
 
-	<h2>Selected Projects</h2>
+	<!-- Deep Learning Section -->
+	<div>
+		<h3 style="display: inline-block; padding: 5px 10px; background-color: #509250; color: white; border-radius: 5px;">
+			Deep Learning
+		</h3>
+		<ul>
+
+			<li>
+				<h4>Computer Vision</h4>
+				<ul>
+					<li><a href="#instance-segmentation">Instance Segmentation: By Location</a></li>
+					<li><a href="#depth">Improving Depth Estimation of DinoV2</a></li>
+				</ul>
+			</li>
+			<li>
+				<h4>MultiModal</h4>
+				<ul>
+					
+					<li><a href="#image-reconstruction">Image Reconstruction using Diffusion Transformers</a></li>
+					<li><a href="#deep">Deepfake Detection</a></li>
+				</ul>
+			</li>
+			<li>
+				<h4>Computational Linguistics/NLP</h4>
+				<ul>
+					<!-- <li><a href="#misinfo">Misinformation Research</a></li> -->
+					<li><a href="#lda">Topic-Modelling-with-Latent-Dirichlet-Allocation</a></li>
+
+				</ul>
+			</li>
+
+
+		</ul>
+	</div>
+	
+	<!-- Traditional Machine Learning Section -->
+	<div>
+		<h3 style="display: inline-block; padding: 5px 10px; background-color: #509250; color: white; border-radius: 5px;">
+			Traditional Machine Learning
+		</h3>
+		<ul>
+			<li><a href="#pricePrediction">Bangalore House Prediction</a></li>
+			
+		</ul>
+	</div>
+	
+	<!-- Computer Vision Section -->
+	<div>
+		<h3 style="display: inline-block; padding: 5px 10px; background-color: #509250; color: white; border-radius: 5px;">
+			AI Engineering/LLMs
+		</h3>
+		<ul>
+			<li><a href="#fitbit">FitBit ChatBot</a></li>
+		</ul>
+	</div>
+	
+	<!-- Data Engineering Section -->
+	<div>
+		<h3 style="display: inline-block; padding: 5px 10px; background-color: #509250; color: white; border-radius: 5px;">
+			Data Engineering/Databases & Information Systems
+		</h3>
+		<ul>
+			<li><a href="#db">Scalable ETL Pipelines with Microsoft Azure</a></li>
+		</ul>
+	</div>
+	
+	<!-- Probability and Statistical Modeling Section -->
+	<div>
+		<h3 style="display: inline-block; padding: 5px 10px; background-color: #509250; color: white; border-radius: 5px;">
+			Probability & Statistical Modeling
+		</h3>
+		<ul>
+			<li><a href="#CLV">CLV Projects</a></li>
+		</ul>
+	</div>
+	
+	
+
+
+	<h2>Project Descriptions</h2>
 
 	<!-- (* denotes equal contribution) -->
 
 	<ol>
 
-		<li>
+		<li id="image-reconstruction">
 			<h3>Image Reconstruction using Diffusion Transformers</h3>
-			<img src="assets\celeb_diffusion.jpeg" alt="DiT pic" style="width:300px;"><br>
+			<img src="assets\celeb_diffusion.jpeg" alt="DiT pic" style="width:450px;"><br>
 			I developed a PatchVAE model to encode facial features from the CelebA dataset, followed by training a Diffusion model using the VAE's latent representations. This approach successfully reconstructed and generated realistic human face images. The model achieved an impressive FID score of 14.2, highlighting its effectiveness in producing high-quality outputs.<br>
 			<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
 	
@@ -208,14 +288,15 @@
 			| <a href="assets/2023_icml_rdl/cite.txt">cite</a> -->
 		</li>
 
-	<li>
+	<li  id="instance-segmentation">
 		<h3>Instance Segmentation: By location</h3>
-		<img src="assets\ins_segmentation.jpeg" alt="Intsance Segmentation Pic" style="width:300px;"><br>
+		<img src="assets\ins_segmentation.jpeg" alt="Intsance Segmentation Pic" style="width:450px;"><br>
 		I implemented an advanced instance segmentation framework inspired by the SOLO (Segmenting Objects by Locations) model. It features a ResNet backbone for robust feature extraction and a Feature Pyramid Network (FPN) to handle multi-scale object representations efficiently.
 
-		The architecture consists of two main branches. The Category Prediction Branch assigns pixels to grid-based instance categories, leveraging spatial information to effectively localize and distinguish objects of varying sizes. Meanwhile, the Mask Segmentation Branch generates accurate binary masks using a spatially sensitive, fully convolutional network, eliminating the need for traditional bounding boxes or complex post-processing.
+		The architecture consists of two main branches. The Category Prediction Branch assigns pixels to grid-based instance categories, leveraging spatial information to effectively localize and distinguish objects of varying sizes. 
+	<p>Meanwhile, the Mask Segmentation Branch generates accurate binary masks using a spatially sensitive, fully convolutional network, eliminating the need for traditional bounding boxes or complex post-processing.
 
-		This end-to-end trainable system simplifies the segmentation pipeline, learning directly from mask annotations to enhance efficiency and deliver high performance across diverse object segmentation tasks. <br>
+		This end-to-end trainable system simplifies the segmentation pipeline, learning directly from mask annotations to enhance efficiency and deliver high performance across diverse object segmentation tasks.</p> <br>
 		<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
 
 		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
@@ -227,10 +308,28 @@
 		| <a href="assets/2023_icml_rdl/cite.txt">cite</a> -->
 	</li>
 
-	<li>
+	<li  id="#depth">
+		<h3>Improving Depth Estimation of DinoV2</h3>
+		<img src="assets\de.jpeg" alt="depth estimation pic" style="width:450px;"><br>
+		<p>The research demonstrated that combining temporal information across frames reduces per-frame errors, enhancing the scaling accuracy of depth maps.  The project explored methods to improve depth estimation in DINOv2 using iterative strategies. Initially, ORB features and phase correlation were applied to align depth maps of consecutive frames explicitly. This approach leveraged the spatial shifts between frames to average depth maps and achieved modest reductions in MSE with minimal latency. However, limitations in alignment accuracy due to perspective distortions motivated further refinement.</p>
+
+		<p>Subsequently, a CNN-based adapter was integrated between the DINOv2 encoder and depth adapter. This adapter utilized phase-correlation-derived pixel shifts as additional input to adjust and combine DINO features from consecutive frames. The CNN introduced an inductive bias for local feature alignment, leading to a significant 23.8% reduction in MSE, outperforming vanilla DINOv2-base while being faster. Regularization techniques were later introduced to preserve high-resolution details in depth maps, improving output quality while maintaining accuracy.</p>
+		<br>
+		<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
+
+		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
+		| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
+		| <a href="https://github.com/keyush06/Improving-DINOv2-Depth-Estimates-by-Smoothing-Over-Consecutive-Frames">code</a>
+		| <a href="https://github.com/keyush06/Improving-DINOv2-Depth-Estimates-by-Smoothing-Over-Consecutive-Frames/blob/master/Dino%20Features%20Research.pdf">Reference Paper</a>
+
+		<!-- | <a href="https://relbench.stanford.edu">website</a>
+		| <a href="assets/2023_icml_rdl/cite.txt">cite</a> -->
+	</li>
+
+	<li id="fitbit">
 
 		<h3>FitBit</h3>
-		<img src="assets\health Chatbot.jpeg" alt="healthcare bot" style="width:300px;"><br>
+		<img src="assets\health Chatbot.jpeg" alt="healthcare bot" style="width:550px;"><br>
 		Designed and developed a Django-based AI chatbot for health-related conversations, integrating PostgreSQL for robust patient data management and Langchain for LLM-agnostic model orchestration. Implemented dynamic entity extraction to capture key details like medications and appointment preferences, optimized memory usage for long conversations, and enabled automated escalation of appointment and treatment requests.  <br>
 		<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
 
@@ -242,6 +341,46 @@
 
 	</li>
 
+	<li id="db">
+
+		<h3>Scalable ETL Pipelines with Microsoft Azure</h3>
+		<img src="assets\deng.jpeg" alt="data eng img" style="width:600px;"><br>
+		<p>In this project, I implemented a robust ETL (Extract, Transform, Load) pipeline using Azure cloud services to process and analyze data efficiently. The pipeline began with data ingestion from HTTP sources and SQL databases. Using Azure Data Factory (ADF), I created linked services to connect to these data sources and developed data pipelines to 
+		automate the extraction of raw data. The ingested data was stored in Azure Data Lake Storage Gen2 (ADLS Gen2) as the raw data layer.</p>
+	<p>For data transformation, I utilized Azure Databricks, where the raw data was processed through data cleansing, aggregation, 
+		and feature engineering to prepare it for downstream analysis. The transformed data was then stored back in ADLS Gen2 in a structured format.
+		Finally, the processed data was imported into Azure Synapse Analytics, where it was further analyzed. This comprehensive ETL pipeline 
+		enabled seamless data movement and transformation, leveraging Azure's ecosystem for efficient data processing and analysis. </p> <br>
+		<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
+
+		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
+		| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
+		| <a href="https://github.com/keyush06/ETL-with-Azure-Data-Factory">Github code</a>
+		<!-- | <a href="https://arxiv.org/abs/2106.15947">Reference Paper</a> -->
+
+
+	</li>
+
+	
+	<li id="deep">
+
+		<h3>Deepfake Detection</h3>
+		<img src="assets\deep.jpeg" alt="deepfake pic" style="width:600px;"><br>
+		Deepfake detection research focuses on identifying and analyzing manipulated video content generated using advanced generative models. By curating extensive video datasets and developing innovative annotation frameworks, 
+		researchers aim to refine the detection of both visual and temporal artifacts. State-of-the-art Video Vision-Language Models (VLMs) such as 
+		VideoLaMA, BLIP, and LLaVA are evaluated by integrating synthetic data and annotated explanations to enhance the categorization of artifacts and improve detection accuracy. Additionally, methodologies like 
+		Kendall Tau’s correlation and reliability analysis are employed to verify data and align annotations. These techniques help assess inter-annotator agreement on deformation labels, 
+		providing robust benchmarks for evaluating the performance of current state-of-the-art detection models.
+		<br>
+		<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
+
+		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
+		| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
+		| <a href="https://github.com/keyush06/Deepfake-Detection">Github code</a>
+		<!-- | <a href="https://arxiv.org/abs/2106.15947">Reference Paper</a> -->
+
+
+	</li>
 
 
 
@@ -260,9 +399,9 @@
 		| <a href="assets/2023_icml_rdl/cite.txt">cite</a> -->
 	<!-- </li> -->
 
-	<li>
+	<li id="traversability-estimation">
 		<h3>Traversability Estimation</h3><br>
-		<img src="assets/OffRoadNavigation.jpeg" alt="Terrain Image" style="width:300px;"><br>
+		<img src="assets/OffRoadNavigation.jpeg" alt="Terrain Image" style="width:600px;"><br>
 		Developed a terrain classification model using Semantic Segmentation and an attention enhanced Fully Convolutional Network, achieving a 2% improvement in IoU. Enhanced off-road navigation for autonomous 
 		vehicles by optimizing path planning and terrain adaptability.<br>
 		<!-- <i>Advances in Neural Information Processing Systems (NeurIPS), 2022</i><br> -->
@@ -275,6 +414,46 @@
 		| <a href="https://github.com/dair-iitd/ilploss">code</a>
 		| <a href="assets/2022_neurips_ilploss/cite.txt">cite</a> -->
 	</li>
+
+	
+	<li id="pricePrediction">
+		<h3>Bangalore House Prediction</h3><br>
+		<img src="assets/house.png" alt="house Image" style="width:600px;"><br>
+		In this project, a machine learning model was developed to predict house prices in Bangalore using the sklearn library. The dataset was sourced from Kaggle and preprocessed using NumPy and Pandas for data cleaning, including outlier detection, feature engineering, and dimensionality reduction. The model was built using linear regression, with hyperparameter 
+		tuning implemented through GridSearchCV and performance evaluated using k-fold cross-validation.
+	<p>The application was powered by a Flask server, which acted as the backend to handle HTTP requests. The Flask server loaded the saved machine learning model and processed user inputs like square footage and number of bedrooms to return predicted prices. 
+		A front-end interface was built using HTML, CSS, and JavaScript, allowing users to 
+		input property details and retrieve price predictions dynamically via calls to the Flask API. The entire workflow integrated Python-based tools and libraries, offering a robust and user-friendly application for real estate price prediction.</p> <br>
+		<!-- <i>Advances in Neural Information Processing Systems (NeurIPS), 2022</i><br> -->
+
+		<!-- <a href="assets/Traversability Estimation/Report.pdf">paper</a> -->
+		| <a href="https://github.com/keyush06/Bangalore-HomePrice-prediction">code</a>
+		<!-- | <a href="https://openreview.net/forum?id=EqZuN4V_FLF">reviews</a>
+		| <a href="https://neurips.cc/media/PosterPDFs/NeurIPS%202022/53251.png?t=1669859105.1475148">poster</a>
+		| <a href="https://neurips.cc/virtual/2022/poster/53251">slides</a>
+		| <a href="https://github.com/dair-iitd/ilploss">code</a>
+		| <a href="assets/2022_neurips_ilploss/cite.txt">cite</a> -->
+	</li>
+
+	<li id="lda">
+		<h3>Topic-Modelling-with-Latent-Dirichlet-Allocation</h3><br>
+		<img src="assets/lda.png" alt="lda Image" style="width:600px;"><br>
+		This project focuses on implementing Latent Dirichlet Allocation (LDA) for topic modeling, a natural language processing technique that classifies text into topics based on the corpus's underlying word distributions. Using libraries like NLTK, Gensim, and SpaCy, text preprocessing involved cleaning data with RegEx and preparing it for analysis.
+
+		Key steps included generating word clouds to visualize word frequency distributions, computing coherence and perplexity scores to optimize the number of topics, and identifying the dominant topic for each document along with its percentage contribution. 
+		The LDA model revealed the proportion of documents belonging to the top six dominant topics, facilitating 
+		deeper insights into the dataset's structure. Interactive visualizations further enhanced the interpretability of the results, making the analysis accessible and insightful. This project demonstrated a robust approach to uncovering hidden thematic patterns in text data.<br>
+				<!-- <i>Advances in Neural Information Processing Systems (NeurIPS), 2022</i><br> -->
+
+		<!-- <a href="assets/Traversability Estimation/Report.pdf">paper</a> -->
+		| <a href="https://github.com/keyush06/Topic-Modelling-with-Latent-Dirichlet-Allocation-LDA-">code</a>
+		<!-- | <a href="https://openreview.net/forum?id=EqZuN4V_FLF">reviews</a>
+		| <a href="https://neurips.cc/media/PosterPDFs/NeurIPS%202022/53251.png?t=1669859105.1475148">poster</a>
+		| <a href="https://neurips.cc/virtual/2022/poster/53251">slides</a>
+		| <a href="https://github.com/dair-iitd/ilploss">code</a>
+		| <a href="assets/2022_neurips_ilploss/cite.txt">cite</a> -->
+	</li>
+
 
 	<!-- <li>
 		<b>GREED: A Neural Framework for Learning Graph Distance Functions</b><br>
