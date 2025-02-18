@@ -49,7 +49,7 @@
 		</li>
 	</ul>
 
-	<h4> <u>Kindly take a look at my <a href="#portfolio">Portfolio of Projects</a>.</u></h4>
+	<h3> <u>Kindly take a look at my <a href="#portfolio">Portfolio of Projects</a>.</u></h3>
 </p>
 <!-- <br> -->
 	
@@ -127,11 +127,28 @@ Check out my ongoing projects in the section below.
 					By leveraging machine learning (ML) and NLP, our model analyzes surgical technique, procedural factors, and patient physiology to provide personalized, data-driven insights. This helps surgeons make better decisions, reduce complications, and improve patient outcomes.
 
 				</li>
+				<li>
+					<u><strong>Misinformation: </strong></u><br>
+					<ul>
+						<li><u><strong>Research Goal:</strong></u> Working on identifying misinformation on social media (FB posts, YouTube interactions) and whether or not it relates to health outcomes for people categorized on the basis of race (white/black) & urbanity (rural/urban).</li>
+						
+						<li>Developed a URL based misinformation-detection model that detected around 1k misinformed posts out of 1mm FB posts.</li>
+						
+						<li>Implemented semantic similarity and entailment analysis using a pre-trained <strong>RoBERTa</strong> model to detect misinformation based on post alignment with trusted claims.</li>
+						
+						<li>Extracted linguistic features from posts using <strong><a href="https://dlatk.github.io/dlatk/tutorials.html" target="_blank">DLATK</a></strong> and applied LDA for topic modeling- computed Pearson’s Correlation for these topic distributions with depression scores computed from user surveys to identify key linguistic markers.</li>
+						
+						<li>Implemented sentiment analysis using a pre-trained ‘DistilBERT’ Transformer model to evaluate user emotions from social media posts, leading to insights on engagement patterns segmented by race and urbanity.</li>
+						
+						<li>Unified data from various online survey platforms in a secured server via MySQL and performed feature engineering in Pandas to prepare data for further downstream tasks.</li>
+					</ul>
+					
+				</li>
 				
 
 				<li>
 
-					<u><strong>Agency determination using NLP:  </strong></u> <br> In collaboration with the <Strong>Department of Psychology</Strong> at Penn, I aim to analyze the evolution of male and female agency in historical texts using AI and NLP. Our multi-source dataset—magazines, movie scripts, and NYT bestsellers—is processed with OCR and SpaCy to extract linguistic structures. 
+					<u><strong>"Agency" determination using NLP:  </strong></u> <br> In collaboration with the <Strong>Department of Psychology</Strong> at Penn, I aim to analyze the evolution of male and female <a href = "https://en.wikipedia.org/wiki/Agency_(psychology)">"Agency"</a> in historical texts using AI and NLP. Our multi-source dataset—magazines, movie scripts, and NYT bestsellers—is processed with OCR and SpaCy to extract linguistic structures. 
 					Leveraging GPT, we aim label agents (action-takers) and patients (acted-upon entities), revealing gendered patterns over time. This data-driven approach uncovers shifts in societal narratives, offering deep insights into cultural and historical trends.
 				</li>
 
