@@ -351,7 +351,7 @@ Check out my ongoing projects in the section below.
 			Probability & Statistical Modeling
 		</h3>
 		<ul>
-			<li><a href="#CLV">CLV Projects</a></li>
+			<li><a href="#nbd">Analyzing Customer Behaviour using Statistical Modeling: Choice of Phone Lines</a></li>
 		</ul>
 	</div>
 	
@@ -448,6 +448,37 @@ Check out my ongoing projects in the section below.
 		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
 		| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
 		| <a href="https://github.com/keyush06/ETL-with-Azure-Data-Factory">Github code</a>
+		<!-- | <a href="https://arxiv.org/abs/2106.15947">Reference Paper</a> -->
+
+
+	</li>
+
+	<li id="nbd">
+
+		<h3>Analyzing Consumer Behavior in Mobile Plan Selection Using Statistical Modeling</h3>
+		<img src="assets\nbd.jpeg.png" alt="nbd picture" style="width:600px;"><br>
+		<h4>AIM</h4>
+		<p>The objective of this project is to analyze the distribution of the number of lines included in a customer's primary mobile phone plan. By leveraging statistical modeling, particularly Negative Binomial Distribution (NBD) variations, we aim to understand consumer behavior in selecting family or individual mobile plans. 
+			The analysis also seeks to determine underlying patterns in purchasing decisions, quantify market potential, and explore the heterogeneity within the dataset.</p>
+	
+		<h4>METHOD</h4>
+			<p> To analyze the dataset, we employed statistical modeling techniques focusing on count data. The primary methodology involved fitting different versions of the Negative Binomial Distribution (NBD) to account for observed trends:</p> <br>
+
+			<ul>
+				<li><strong>Shifted NBD Model</strong> – Used to model the distribution, accounting for the absence of zero values in the dataset.</li>
+				<li><strong>Shifted NBD with a Spike at 1</strong> – Introduced to capture the segment of customers who strongly prefer single-line plans.</li>
+				<li><strong>Truncated NBD Model</strong> – Implemented to estimate the proportion of potential customers who might have opted for zero lines but were excluded from the dataset.</li>
+				<li><strong>Gamma Distribution Analysis</strong> – Applied to measure the propensity of customers to purchase more than four lines.</li>
+			</ul>
+			<p>Various model evaluation techniques, including Q-Q plots, chi-square likelihood ratio tests, and p-value assessments, were used to determine the fit and effectiveness of the models.</p>
+		<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
+			<h4>Conclusion</h4>
+			<p>Conclusion
+				The analysis confirmed that most customers opt for one to four lines per mobile plan, with a significant number of users preferring single-line plans due to convenience. 
+				The presence of a right-censored dataset and high homogeneity suggested that purchasing additional lines is influenced by external factors, such as social contagion, promotions, or family needs.</p>
+		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
+		| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
+		| <a href="https://github.com/keyush06/Analyzing-Customer-Behaviour-using-Statistical-Modeling/tree/master/Analyzing%20Customer%20Behaviour%20-%20Choice%20of%20Phone%20lines">Project Link</a>
 		<!-- | <a href="https://arxiv.org/abs/2106.15947">Reference Paper</a> -->
 
 
