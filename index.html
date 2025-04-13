@@ -345,9 +345,10 @@ Check out my ongoing projects in the section below.
 	<!-- Data Engineering Section -->
 	<div>
 		<h3 style="display: inline-block; padding: 5px 10px; background-color: #509250; color: white; border-radius: 5px;">
-			Data Engineering/Databases & Information Systems
+			Computer Systems & Data Engineering
 		</h3>
 		<ul>
+			<li><a href="#thread">Traversability Estimation</a></li>
 			<li><a href="#db">Scalable ETL Pipelines with Microsoft Azure</a></li>
 		</ul>
 	</div>
@@ -435,6 +436,33 @@ Check out my ongoing projects in the section below.
 		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
 		| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
 		| <a href="https://github.com/keyush06/FitBit_ChatBot">Github code</a>
+		<!-- | <a href="https://arxiv.org/abs/2106.15947">Reference Paper</a> -->
+
+
+	</li>
+
+	<li id="thread">
+
+		<h3>Multithreaded Image Blurring with POSIX Threads</h3>
+		<img src="assets\threads.png" alt="threading img" style="width:600px;"><br>
+		<ul>
+			<li>Developed a multithreaded image processing pipeline to apply a <strong>box blur</strong> on bitmap (BMP) images using <strong>POSIX threads</strong> in C++.</li>
+		
+			<li>Achieved a <strong>2.8x speedup</strong> compared to the sequential baseline (from <strong>3251 ms to 1165 ms</strong>) on a quad-core CPU, using <strong>4 threads</strong> on a moderately large input image and a blur radius of 8.</li>
+		
+			<li>Implemented <strong>dynamic workload partitioning</strong> by dividing the image into non-overlapping horizontal slices, assigned evenly across threads to eliminate write conflicts and maintain cache locality.</li>
+		
+			<li>Managed per-thread argument structures using <strong>dynamically allocated memory.</strong> </li>
+		
+			<li>Designed the system to operate entirely in <strong>shared memory</strong> without mutexes by restricting writes to thread-local output regions, enabling lock-free parallelism.</li>
+		
+			<li>Optimized memory access by ensuring threads performed <strong>read-only access</strong> on the input image and wrote exclusively to disjoint rows in the output buffer (<code>BitMap</code>), avoiding contention and ensuring correctness.</li>
+		  </ul>
+		<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
+
+		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
+		| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
+		| <a href="https://github.com/keyush06/Image-Blurring-by-Multithreading">Github code</a>
 		<!-- | <a href="https://arxiv.org/abs/2106.15947">Reference Paper</a> -->
 
 
