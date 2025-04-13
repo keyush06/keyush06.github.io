@@ -348,7 +348,7 @@ Check out my ongoing projects in the section below.
 			Computer Systems & Data Engineering
 		</h3>
 		<ul>
-			<li><a href="#thread">Traversability Estimation</a></li>
+			<li><a href="#thread">Multithreaded Image Blurring with POSIX Threads</a></li>
 			<li><a href="#db">Scalable ETL Pipelines with Microsoft Azure</a></li>
 		</ul>
 	</div>
@@ -373,7 +373,7 @@ Check out my ongoing projects in the section below.
 	<ol>
 
 		<li id="image-reconstruction">
-			<h3>Image Reconstruction using Diffusion Transformers</h3>
+			<h3 style="font-weight: bold;">Image Reconstruction using Diffusion Transformers</h3>
 			<img src="assets\celeb_diffusion.jpeg" alt="DiT pic" style="width:450px;"><br>
 			I developed a PatchVAE model to encode facial features from the CelebA dataset, followed by training a Diffusion model using the VAE's latent representations. This approach successfully reconstructed and generated realistic human face images. The model achieved an impressive FID score of 14.2, highlighting its effectiveness in producing high-quality outputs.<br>
 			<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
@@ -388,7 +388,7 @@ Check out my ongoing projects in the section below.
 		</li>
 
 	<li  id="instance-segmentation">
-		<h3>Instance Segmentation: By location</h3>
+		<h3 style="font-weight: bold;">Instance Segmentation: By location</h3>
 		<img src="assets\ins_segmentation.jpeg" alt="Intsance Segmentation Pic" style="width:450px;"><br>
 		I implemented an advanced instance segmentation framework inspired by the SOLO (Segmenting Objects by Locations) model. It features a ResNet backbone for robust feature extraction and a Feature Pyramid Network (FPN) to handle multi-scale object representations efficiently.
 
@@ -409,7 +409,7 @@ Check out my ongoing projects in the section below.
 
 
 	<li  id="depth">
-		<h3>Improving Depth Estimation of DinoV2</h3>
+		<h3 style="font-weight: bold;">Improving Depth Estimation of DinoV2</h3>
 		<img src="assets\de.jpeg" alt="depth estimation pic" style="width:450px;"><br>
 		<p>The research demonstrated that combining temporal information across frames reduces per-frame errors, enhancing the scaling accuracy of depth maps.  The project explored methods to improve depth estimation in DINOv2 using iterative strategies. Initially, ORB features and phase correlation were applied to align depth maps of consecutive frames explicitly. This approach leveraged the spatial shifts between frames to average depth maps and achieved modest reductions in MSE with minimal latency. However, limitations in alignment accuracy due to perspective distortions motivated further refinement.</p>
 
@@ -428,7 +428,7 @@ Check out my ongoing projects in the section below.
 
 	<li id="fitbit">
 
-		<h3>FitBit</h3>
+		<h3 style="font-weight: bold;">FitBit</h3>
 		<img src="assets\health Chatbot.jpeg" alt="healthcare bot" style="width:550px;"><br>
 		Designed and developed a Django-based AI chatbot for health-related conversations, integrating PostgreSQL for robust patient data management and Langchain for LLM-agnostic model orchestration. Implemented dynamic entity extraction to capture key details like medications and appointment preferences, optimized memory usage for long conversations, and enabled automated escalation of appointment and treatment requests.  <br>
 		<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
@@ -441,9 +441,11 @@ Check out my ongoing projects in the section below.
 
 	</li>
 
+	 <br>
+
 	<li id="thread">
 
-		<h3>Multithreaded Image Blurring with POSIX Threads</h3>
+		<h3 style="font-weight: bold;">Multithreaded Image Blurring with POSIX Threads</h3>
 		<img src="assets\threads.png" alt="threading img" style="width:600px;"><br>
 		<ul>
 			<li>Developed a multithreaded image processing pipeline to apply a <strong>box blur</strong> on bitmap (BMP) images using <strong>POSIX threads</strong> in C++.</li>
@@ -470,27 +472,27 @@ Check out my ongoing projects in the section below.
 
 	<li id="db">
 
-		<h3>Scalable ETL Pipelines with Microsoft Azure</h3>
+		<h3 style="font-weight: bold;">Scalable ETL Pipelines with Microsoft Azure</h3>
 		<img src="assets\deng.jpeg" alt="data eng img" style="width:600px;"><br>
 		<p>In this project, I implemented a robust ETL (Extract, Transform, Load) pipeline using Azure cloud services to process and analyze data efficiently. The pipeline began with data ingestion from HTTP sources and SQL databases. Using Azure Data Factory (ADF), I created linked services to connect to these data sources and developed data pipelines to 
 		automate the extraction of raw data. The ingested data was stored in Azure Data Lake Storage Gen2 (ADLS Gen2) as the raw data layer.</p>
 	<p>For data transformation, I utilized Azure Databricks, where the raw data was processed through data cleansing, aggregation, 
 		and feature engineering to prepare it for downstream analysis. The transformed data was then stored back in ADLS Gen2 in a structured format.
 		Finally, the processed data was imported into Azure Synapse Analytics, where it was further analyzed. This comprehensive ETL pipeline 
-		enabled seamless data movement and transformation, leveraging Azure's ecosystem for efficient data processing and analysis. </p> <br>
+		enabled seamless data movement and transformation, leveraging Azure's ecosystem for efficient data processing and analysis. </p> 
 		<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
 
 		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
 		| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
 		| <a href="https://github.com/keyush06/ETL-with-Azure-Data-Factory">Github code</a>
 		<!-- | <a href="https://arxiv.org/abs/2106.15947">Reference Paper</a> -->
-
-
 	</li>
+
+	<br>
 
 	<li id="nbd">
 
-		<h3>Analyzing Consumer Behavior in Mobile Plan Selection Using Statistical Modeling</h3>
+		<h3 style="font-weight: bold;">Analyzing Consumer Behavior in Mobile Plan Selection Using Statistical Modeling</h3>
 		<img src="assets\nbd.jpeg.png" alt="nbd picture" style="width:600px;"><br>
 		<h4>AIM</h4>
 		<p>The objective of this project is to analyze the distribution of the number of lines included in a customer's primary mobile phone plan. By leveraging statistical modeling, particularly Negative Binomial Distribution (NBD) variations, we aim to understand consumer behavior in selecting family or individual mobile plans. 
@@ -519,10 +521,12 @@ Check out my ongoing projects in the section below.
 
 	</li>
 
+	<br>
+
 	
 	<li id="deep">
 
-		<h3>Deepfake Detection</h3>
+		<h3 style="font-weight: bold;">Deepfake Detection</h3>
 		<img src="assets\deep.jpeg" alt="deepfake pic" style="width:600px;"><br>
 		Deepfake detection research focuses on identifying and analyzing manipulated video content generated using advanced generative models. By curating extensive video datasets and developing innovative annotation frameworks, 
 		researchers aim to refine the detection of both visual and temporal artifacts. State-of-the-art Video Vision-Language Models (VLMs) such as 
@@ -556,9 +560,9 @@ Check out my ongoing projects in the section below.
 		<!-- | <a href="https://relbench.stanford.edu">website</a>
 		| <a href="assets/2023_icml_rdl/cite.txt">cite</a> -->
 	<!-- </li> -->
-
+	<br>
 	<li id="traversability-estimation">
-		<h3>Traversability Estimation</h3><br>
+		<h3 style="font-weight: bold;">Traversability Estimation</h3><br>
 		<img src="assets/OffRoadNavigation.jpeg" alt="Terrain Image" style="width:600px;"><br>
 		Developed a terrain classification model using Semantic Segmentation and an attention enhanced Fully Convolutional Network, achieving a 2% improvement in IoU. Enhanced off-road navigation for autonomous 
 		vehicles by optimizing path planning and terrain adaptability.<br>
@@ -573,9 +577,9 @@ Check out my ongoing projects in the section below.
 		| <a href="assets/2022_neurips_ilploss/cite.txt">cite</a> -->
 	</li>
 
-	
+	<br>
 	<li id="pricePrediction">
-		<h3>Bangalore House Prediction</h3><br>
+		<h3 style="font-weight: bold;">Bangalore House Prediction</h3><br>
 		<img src="assets/house.png" alt="house Image" style="width:600px;"><br>
 		In this project, a machine learning model was developed to predict house prices in Bangalore using the sklearn library. The dataset was sourced from Kaggle and preprocessed using NumPy and Pandas for data cleaning, including outlier detection, feature engineering, and dimensionality reduction. The model was built using linear regression, with hyperparameter 
 		tuning implemented through GridSearchCV and performance evaluated using k-fold cross-validation.
@@ -590,11 +594,13 @@ Check out my ongoing projects in the section below.
 		| <a href="https://neurips.cc/media/PosterPDFs/NeurIPS%202022/53251.png?t=1669859105.1475148">poster</a>
 		| <a href="https://neurips.cc/virtual/2022/poster/53251">slides</a>
 		| <a href="https://github.com/dair-iitd/ilploss">code</a>
-		| <a href="assets/2022_neurips_ilploss/cite.txt">cite</a> -->
+		| <a h
+		
+		ref="assets/2022_neurips_ilploss/cite.txt">cite</a> -->
 	</li>
-
+	<br>
 	<li id="lda">
-		<h3>Topic-Modelling-with-Latent-Dirichlet-Allocation</h3><br>
+		<h3 style="font-weight: bold;">Topic-Modelling-with-Latent-Dirichlet-Allocation</h3><br>
 		<img src="assets/lda.png" alt="lda Image" style="width:600px;"><br>
 		This project focuses on implementing Latent Dirichlet Allocation (LDA) for topic modeling, a natural language processing technique that classifies text into topics based on the corpus's underlying word distributions. Using libraries like NLTK, Gensim, and SpaCy, text preprocessing involved cleaning data with RegEx and preparing it for analysis.
 
