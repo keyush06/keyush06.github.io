@@ -153,7 +153,24 @@ Check out my ongoing projects in the section below.
 			<ul> 
 				<li>
 					<u><strong>IH Risk Model: </strong></u><br> In collaboration with <strong> Penn Medicine</strong>, I am working on developing a model to predict the risk of Incisional Hernia (IH) in patients post-surgery by using real-world operative notes and intraoperative EHR data.
-					By leveraging machine learning (ML) and NLP, our model analyzes surgical technique, procedural factors, and patient physiology to provide personalized, data-driven insights. This helps surgeons make better decisions, reduce complications, and improve patient outcomes.
+					<ul>
+						<li>
+							<strong>🔄 Reduced model tuning time by 10×</strong> by developing an <strong>AutoML pipeline</strong> using <strong>FLAML</strong> for risk prediction 
+							(<strong>recall = 0.90</strong>), enabling faster iteration over logistic and tree-based models.
+						</li>
+						<li>
+							<strong>Engineered few-shot GPT-4 pipelines</strong> to extract surgical features (e.g., <em>incision type</em>, <em>ostomy</em>, <em>closure</em>) from 10K+ operative notes, 
+							reducing noisy extractions by <strong>30%</strong> vs. RoBERTa-based baselines.
+						</li>
+						<li>
+							<strong>Modularized LLM backend</strong> to support <strong>OpenAI</strong> and <strong>Mistral</strong>; implemented 
+							<strong>parallelized batch inference</strong> and <strong>memory-efficient chunking</strong> to support large-scale processing.
+						</li>
+						<li>
+							<strong>📊 Visualized latent structure</strong> across surgical feature types using <strong>OpenAI text embeddings</strong>, <strong>PCA</strong>, and <strong>Seaborn</strong>. Applied 
+        					<strong>JSON schema validation</strong> using <code>jsonschema</code> to ensure extraction integrity.
+						</li>
+						</ul>
 
 				</li>
 				<li>
