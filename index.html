@@ -334,6 +334,27 @@ Check out my ongoing projects in the section below.
 
 	<h2 id = "portfolio">Portfolio of Selected Projects</h2>
 
+	<div>
+		<h3 style="display: inline-block; padding: 5px 10px; background-color: #509250; color: white; border-radius: 5px;">
+			Machine Learning Systems/MLOps
+		</h3>
+		<ul>
+			<li><a href="#ride">Ride Duration Prediction</a></li>
+			<li><a href="#pricePrediction">Bangalore House Prediction</a></li>
+			
+		</ul>
+	</div>
+	
+	<!-- Computer Vision Section -->
+	<div>
+		<h3 style="display: inline-block; padding: 5px 10px; background-color: #509250; color: white; border-radius: 5px;">
+			AI Engineering/LLMs
+		</h3>
+		<ul>
+			<li><a href="#fitbit">FitBit ChatBot</a></li>
+		</ul>
+	</div>
+
 	<!-- Deep Learning Section -->
 	<div>
 		<h3 style="display: inline-block; padding: 5px 10px; background-color: #509250; color: white; border-radius: 5px;">
@@ -370,25 +391,7 @@ Check out my ongoing projects in the section below.
 	</div>
 	
 	<!-- Traditional Machine Learning Section -->
-	<div>
-		<h3 style="display: inline-block; padding: 5px 10px; background-color: #509250; color: white; border-radius: 5px;">
-			Traditional Machine Learning
-		</h3>
-		<ul>
-			<li><a href="#pricePrediction">Bangalore House Prediction</a></li>
-			
-		</ul>
-	</div>
 	
-	<!-- Computer Vision Section -->
-	<div>
-		<h3 style="display: inline-block; padding: 5px 10px; background-color: #509250; color: white; border-radius: 5px;">
-			AI Engineering/LLMs
-		</h3>
-		<ul>
-			<li><a href="#fitbit">FitBit ChatBot</a></li>
-		</ul>
-	</div>
 	
 	<!-- Data Engineering Section -->
 	<div>
@@ -419,6 +422,46 @@ Check out my ongoing projects in the section below.
 	<!-- (* denotes equal contribution) -->
 
 	<ol>
+		<li id="ride">
+			<h3 style="font-weight: bold;">Ride Duration Prediction</h3>
+			<img src="assets\taxi.jpg" alt="taxi pic" style="width:450px;"><br>
+			 <h4 style="color: #0a2e76;">🧱Model Development</h4>
+				<ul>
+					<li>Processed NYC taxi trip data with engineered features like pickup/dropoff zones and trip distance.</li>
+					<li>Tuned XGBoost and Random Forest models using <b>Hyperopt</b>, improving RMSE by ~30%.</li>
+					<li>Tracked all experiments, metrics, and artifacts using <b>MLflow</b>.</li>
+				</ul>
+
+			<h4 style="color: #0a2e76;">🧱 Pipeline Orchestration</h4>
+				<ul>
+					<li>Designed a modular ML pipeline using <b>Apache Airflow</b> to automate preprocessing and training stages.</li>
+					<li>Configured <b>Docker + CeleryExecutor</b> for reproducible, distributed task execution.</li>
+					<li>Used <b>XCom</b> for smooth data passing and monitoring through the DAG.</li>
+				</ul>
+
+			<h4 style="color: #0a2e76;">🧱 Experiment Management</h4>
+				<ul>
+					<li>Logged models to <b>MLflow Model Registry</b>, versioned them, and promoted top models to "Production" stage.</li>
+					<li>Enabled consistent experiment comparison and artifact retrieval.</li>
+				</ul>
+
+			<h4 style="color: #0a2e76;">🧱 Deployment</h4>
+				<ul>
+					<li>Deployed the trained model as a REST API using <b>Flask</b>, allowing real-time predictions via user input.</li>
+					<li>Containerized the app with <b>Docker</b> to simulate a real-world, always-on service.</li>
+				</ul>
+			
+			<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
+	
+			<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
+			| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
+			| <a href="https://github.com/keyush06/MLOps-Model-Development-to-Production-deployment">code</a>
+			<!-- | <a href="https://arxiv.org/abs/2212.09748">Reference Paper</a> -->
+	
+			<!-- | <a href="https://relbench.stanford.edu">website</a>
+			| <a href="assets/2023_icml_rdl/cite.txt">cite</a> -->
+		</li>
+
 
 		<li id="image-reconstruction">
 			<h3 style="font-weight: bold;">Image Reconstruction using Diffusion Transformers</h3>
