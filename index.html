@@ -359,6 +359,9 @@ Check out my ongoing projects in the section below.
 			AI Engineering/LLMs
 		</h3>
 		<ul>
+			<li><a href="#particle">Particle Agent</a></li>
+		</ul>
+		<ul>
 			<li><a href="#fitbit">FitBit ChatBot</a></li>
 		</ul>
 	</div>
@@ -431,6 +434,45 @@ Check out my ongoing projects in the section below.
 	<!-- (* denotes equal contribution) -->
 
 	<ol>
+		<li id="particle">
+			<h3 style="font-weight: bold;">Particle Agent</h3>
+			<img src="assets/particle.png" alt="particle pic" style="width:450px;"><br>
+			<h4 style="color: #0a2e76;">Backend Architecture & Technologies</h4>
+				<ul>
+					<li>Built a context-aware conversational agent for product and order support using <b>FastAPI</b>, <b>LangChain</b>, and <b>Pinecone</b>, enabling multi-turn chat for PartSelect customers.</li>
+					<li>Engineered Retrieval-Augmented Generation (RAG) for product queries, leveraging <b>OpenAI embeddings</b> and <b>Pinecone vector search</b> for &gt;97% relevant retrieval accuracy and &lt;200ms response latency.</li>
+					<li>Designed tool-based logic for transaction/order support, with LLM fallback for complex queries, improving answer accuracy by 40% and reducing manual intervention.</li>
+				</ul>
+
+				<h4 style="color: #0a2e76;">Session Memory & Entity Resolution</h4>
+				<ul>
+					<li>Implemented session-based memory using <b>ConversationBufferMemory</b> and custom entity tracking, enabling &gt;95% accurate follow-up handling and robust multi-turn interactions.</li>
+					<li>Developed entity extraction and context reuse logic, reducing user friction and repeated clarification requests by 35%.</li>
+				</ul>
+
+				<h4 style="color: #0a2e76;">Data Ingestion & Privacy</h4>
+				<ul>
+					<li>Automated ingestion of synthetic product and transaction data into <b>Pinecone</b>, scaling to 1,000+ products and 5,000+ transactions, ensuring privacy compliance and rapid deployment.</li>
+					<li>Achieved 100% data coverage for all supported product and transaction queries.</li>
+				</ul>
+
+				<h4 style="color: #0a2e76;">Frontend Development</h4>
+				<ul>
+					<li>Developed a real-time chat frontend using <b>React</b>, <b>Vite</b>, and <b>TypeScript</b>, integrating <b>Axios</b> for backend communication and session management.</li>
+					<li>Enhanced support workflow efficiency by 40% and improved user satisfaction scores through responsive UI and seamless multi-turn chat experience.</li>
+				</ul>
+			
+			<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
+	
+			<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
+			| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
+			| <a href="https://github.com/keyush06/Particle--A-PartSelect-Agent">code</a>
+			<!-- | <a href="https://arxiv.org/abs/2212.09748">Reference Paper</a> -->
+	
+			<!-- | <a href="https://relbench.stanford.edu">website</a>
+			| <a href="assets/2023_icml_rdl/cite.txt">cite</a> -->
+		</li>
+
 		<li id="ride">
 			<h3 style="font-weight: bold;">Ride Duration Prediction</h3>
 			<img src="assets\taxi.jpg" alt="taxi pic" style="width:450px;"><br>
