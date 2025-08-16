@@ -4,10 +4,10 @@ body {
     background: linear-gradient(to right, #f8f9fa, #e0eafc);
 	color: #333;
 	font-family: "Open Sans", sans-serif;
-	line-height: 1.5;
-	max-width: 720px;
+	line-height: 1.65; /* slightly more vertical breathing room */
+	max-width: 1000px; /* was 720px — widen the layout */
 	margin: auto;
-	padding: 1em;
+	padding: 2rem; /* a touch more side padding for wide screens */
 }
 
 #profile_pic {
