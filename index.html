@@ -93,27 +93,28 @@ where I am advised by Prof. <a href="https://www.cis.upenn.edu/~ungar/">Lyle Ung
 
 <h2>Professional Experience</h2>
 
-	<ol class="horizontal-list">
-		
-		<li>
-			<h3><a href="assets/Resume__Keyush_EWS.pdf"">Penn Medicine</a></h3>
-			<i>AI Researcher</i>
-			<i>2024</i>
-		</li>
-
-		<li>
-
-			<h3><a href="assets/Resume__Keyush_EWS.pdf"">Universal Media</a></h3>
-			<i>Data Science Intern</i>
-			<i>2024</i>
-		</li>
-		
-		<li>
-			<h3><a href="assets/Resume__Keyush_EWS.pdf"">IIFL Finance Ltd</a></h3>
-			<i>Assistant Manager</i>
-			<i>2022 - 2023</i>
-		</li>
-	</ol>
+	<div class="exp-grid">
+		<div class="exp-card">
+			<div class="exp-date">Aug 2025 - Present</div>
+			<h3 class="exp-company"><a href="assets/Resume__Keyush_EWS.pdf">Omnicom</a></h3>
+			<div class="exp-role">Software Engineer, ML</div>
+		</div>
+		<div class="exp-card">
+			<div class="exp-date">2024 - 2025</div>
+			<h3 class="exp-company"><a href="assets/Resume__Keyush_EWS.pdf">Penn Medicine</a></h3>
+			<div class="exp-role">AI Researcher</div>
+		</div>
+		<div class="exp-card">
+			<div class="exp-date">2024</div>
+			<h3 class="exp-company"><a href="assets/Resume__Keyush_EWS.pdf">Universal Media</a></h3>
+			<div class="exp-role">Data Science Intern</div>
+		</div>
+		<div class="exp-card">
+			<div class="exp-date">2022 - 2023</div>
+			<h3 class="exp-company"><a href="assets/Resume__Keyush_EWS.pdf">IIFL Finance Ltd</a></h3>
+			<div class="exp-role">Assistant Manager</div>
+		</div>
+	</div>
 	
 	
 	
@@ -166,6 +167,59 @@ Click the link below to take a look at my research interests and some questions 
 				section.style.display = "none";
 			}
 		}
+		function toggleResearchProjects() {
+			var section = document.getElementById("researchProjectsSection");
+			if (section.style.display === "none") {
+				section.style.display = "block";
+			} else {
+				section.style.display = "none";
+			}
+		}
+		function togglePublications() {
+			var section = document.getElementById("publicationsSection");
+			if (section.style.display === "none") {
+				section.style.display = "block";
+			} else {
+				section.style.display = "none";
+			}
+		}
+		function toggleProject(btn) {
+			var details = btn.parentElement.nextElementSibling;
+			if (details.style.display === "none") {
+				details.style.display = "block";
+				btn.textContent = "Hide Details";
+			} else {
+				details.style.display = "none";
+				btn.textContent = "Show Details";
+			}
+		}
+		function highlightProject(id) {
+			// Remove highlight from all cards
+			document.querySelectorAll('.project-card').forEach(function(card) {
+				card.classList.remove('project-highlight');
+			});
+			// Add highlight to the target card
+			var target = document.getElementById(id);
+			if (target) {
+				target.classList.add('project-highlight');
+				// Remove highlight after 3 seconds
+				setTimeout(function() {
+					target.classList.remove('project-highlight');
+				}, 15000);
+			}
+		}
+		// Trigger highlight when navigating from portfolio links
+		window.addEventListener('hashchange', function() {
+			var id = window.location.hash.substring(1);
+			highlightProject(id);
+		});
+		// Also trigger on page load if there's a hash
+		window.addEventListener('load', function() {
+			if (window.location.hash) {
+				var id = window.location.hash.substring(1);
+				highlightProject(id);
+			}
+		});
 	</script>
 
 <!-- I work as an ML Researcher at the <a href="https://csl-lab-upenn.github.io/">Computational Social Listening Lab</a> 
@@ -177,10 +231,17 @@ Check out my ongoing projects in the section below.
 </p>
 
 
+	<h3 onclick="toggleResearchProjects()"
+    style="text-decoration: underline; color: white;
+           cursor: pointer; text-align: center;
+           background-color: #063e75; padding: 15px;
+           border-radius: 8px; width: 50%;
+           margin: auto; font-size: 20px;">
+    Current Research Projects
+</h3>
+<br>
+<section id="researchProjectsSection" style="display: none; text-align: left; margin-top: 20px;">
 	<div style="border: 2px solid #808080; padding: 15px; margin: 20px 0; border-radius: 8px;">
-		<h3 style="background-color: #FFD700; color: black; margin: -15px -15px 10px -15px; padding: 10px; border-radius: 8px 8px 0 0; text-align: center; font-size: 1.2em;">
-			Current Research Projects
-		</h3>
         <p>
 			
 			<ul> 
@@ -243,6 +304,7 @@ Check out my ongoing projects in the section below.
 		
         </p>
     </div>
+</section>
 
 
 	<!-- <div style="border: 2px solid #808080; padding: 15px; margin: 20px 0; border-radius: 8px;">
@@ -311,12 +373,22 @@ Check out my ongoing projects in the section below.
 	
 
 
-	<h2>Publication: pre-prints</h2>
+	<h3 onclick="togglePublications()"
+    style="text-decoration: underline; color: white;
+           cursor: pointer; text-align: center;
+           background-color: #063e75; padding: 15px;
+           border-radius: 8px; width: 50%;
+           margin: auto; font-size: 20px;">
+    Publication: Pre-prints
+</h3>
+<br>
+<section id="publicationsSection" style="display: none; text-align: left; margin-top: 20px;">
+	<div style="width: 60%; margin: auto; padding: 15px; border: 2px solid #808080; border-radius: 8px; background-color: #f9f9f9;">
 
 	(* denotes equal contribution)
 
 	<ol>
-	
+
 	<li>
 		<b>Enhancing Retrieval in QA Systems with Derived Feature Association</b><br>
 		<u>Keyush Shah</u>, <u>Abhishek Goyal*</u>, <u>Isaac Wasserman*</u><br>
@@ -325,107 +397,77 @@ Check out my ongoing projects in the section below.
 		<a href="assets/neurips_2023.pdf">paper</a>
 		| <a href="https://arxiv.org/abs/2410.03754">arxiv</a>
 		| <a href="https://github.com/isaacwasserman/LongRAG">code</a>
-		<!-- | <a href="https://relbench.stanford.edu">website</a> -->
-		<!-- | <a href="assets/2024_arxiv_relbench/cite.txt">cite</a> -->
 	</li>
 
-	<!-- <li>
-		<b>Post-Hoc Reversal: Are We Selecting Models Prematurely?</b><br>
-		<u>Rishabh Ranjan</u>, Saurabh Garg, Mrigank Raman, Carlos Guestrin, Zachary Lipton<br>
-		<i>arXiv preprint, 2024</i><br>
-
-		<a href="assets/2024_arxiv_phr/paper.pdf">paper</a>
-		| <a href="https://arxiv.org/abs/2404.07815">arxiv</a>
-		| <a href="https://github.com/rishabh-ranjan/post-hoc-reversal">code</a>
-		| <a href="assets/2024_arxiv_phr/cite.txt">cite</a>
-	</li> -->
-
 	</ol>
-
-	<h2 id = "portfolio">Portfolio of Selected Projects</h2>
-
-	<div>
-		<h3 style="display: inline-block; padding: 5px 10px; background-color: #509250; color: white; border-radius: 5px;">
-			Machine Learning Systems/MLOps
-		</h3>
-		<ul>
-			<li><a href="#ride">Ride Duration Prediction</a></li>
-			<li><a href="#pricePrediction">Bangalore House Prediction</a></li>
-			
-		</ul>
 	</div>
-	
-	<!-- Computer Vision Section -->
-	<div>
-		<h3 style="display: inline-block; padding: 5px 10px; background-color: #509250; color: white; border-radius: 5px;">
-			AI Engineering/LLMs
-		</h3>
-		<ul>
-			<li><a href="#particle">Particle Agent</a></li>
-		</ul>
-		<ul>
-			<li><a href="#fitbit">FitBit ChatBot</a></li>
-		</ul>
-	</div>
+</section>
 
-	<!-- Deep Learning Section -->
-	<div>
-		<h3 style="display: inline-block; padding: 5px 10px; background-color: #509250; color: white; border-radius: 5px;">
-			Deep Learning
-		</h3>
-		<ul>
+	<h2 id="portfolio">Portfolio of Selected Projects</h2>
 
-			<li>
-				<h4>Computer Vision</h4>
-				<ul>
-					<li><a href="#traversability-estimation">Traversability Estimation: Autonomous driving</a></li>
-					<li><a href="#instance-segmentation">Instance Segmentation: By Location</a></li>
-					<li><a href="#depth">Improving Depth Estimation of DinoV2</a></li>
-				</ul>
-			</li>
-			<li>
-				<h4>MultiModal</h4>
-				<ul>
-					
-					<li><a href="#image-reconstruction">Image Reconstruction using Diffusion Transformers</a></li>
-					<li><a href="#deep">Deepfake Detection</a></li>
-				</ul>
-			</li>
-			<li>
-				<h4>Computational Linguistics/NLP</h4>
-				<ul>
-					<!-- <li><a href="#misinfo">Misinformation Research</a></li> -->
-					<li><a href="#lda">Topic-Modelling-with-Latent-Dirichlet-Allocation</a></li>
+	<div class="portfolio-grid">
 
-				</ul>
-			</li>
+		<div class="portfolio-card">
+			<div class="portfolio-card-header" style="border-left: 4px solid #2563eb;">
+				<span class="portfolio-icon">&#9881;</span> ML Systems / MLOps
+			</div>
+			<ul class="portfolio-list">
+				<li><a href="#ride">Ride Duration Prediction</a><span class="portfolio-tag">MLflow &middot; Airflow &middot; Docker</span></li>
+				<li><a href="#pricePrediction">Bangalore House Prediction</a><span class="portfolio-tag">Flask &middot; sklearn &middot; GridSearchCV</span></li>
+			</ul>
+		</div>
 
+		<div class="portfolio-card">
+			<div class="portfolio-card-header" style="border-left: 4px solid #7c3aed;">
+				<span class="portfolio-icon">&#129302;</span> AI Engineering / LLMs
+			</div>
+			<ul class="portfolio-list">
+				<li><a href="#particle">Particle Agent</a><span class="portfolio-tag">FastAPI &middot; LangChain &middot; Pinecone &middot; React</span></li>
+				<li><a href="#fitbit">FitBit ChatBot</a><span class="portfolio-tag">Django &middot; LangChain &middot; PostgreSQL</span></li>
+			</ul>
+		</div>
 
-		</ul>
-	</div>
-	
-	<!-- Traditional Machine Learning Section -->
-	
-	
-	<!-- Data Engineering Section -->
-	<div>
-		<h3 style="display: inline-block; padding: 5px 10px; background-color: #509250; color: white; border-radius: 5px;">
-			Computer Systems & Data Engineering
-		</h3>
-		<ul>
-			<li><a href="#thread">Multithreaded Image Blurring with POSIX Threads</a></li>
-			<li><a href="#db">Scalable ETL Pipelines with Microsoft Azure</a></li>
-		</ul>
-	</div>
-	
-	<!-- Probability and Statistical Modeling Section -->
-	<div>
-		<h3 style="display: inline-block; padding: 5px 10px; background-color: #509250; color: white; border-radius: 5px;">
-			Probability & Statistical Modeling
-		</h3>
-		<ul>
-			<li><a href="#nbd">Analyzing Customer Behaviour using Statistical Modeling: Choice of Phone Lines</a></li>
-		</ul>
+		<div class="portfolio-card">
+			<div class="portfolio-card-header" style="border-left: 4px solid #059669;">
+				<span class="portfolio-icon">&#128065;</span> Computer Vision
+			</div>
+			<ul class="portfolio-list">
+				<li><a href="#traversability-estimation">Traversability Estimation: Autonomous Driving</a><span class="portfolio-tag">Semantic Segmentation &middot; FCN</span></li>
+				<li><a href="#instance-segmentation">Instance Segmentation: By Location</a><span class="portfolio-tag">ResNet &middot; FPN &middot; SOLO</span></li>
+				<li><a href="#depth">Improving Depth Estimation of DINOv2</a><span class="portfolio-tag">CNN Adapter &middot; Phase Correlation</span></li>
+			</ul>
+		</div>
+
+		<div class="portfolio-card">
+			<div class="portfolio-card-header" style="border-left: 4px solid #dc2626;">
+				<span class="portfolio-icon">&#127912;</span> MultiModal / NLP
+			</div>
+			<ul class="portfolio-list">
+				<li><a href="#image-reconstruction">Image Reconstruction using Diffusion Transformers</a><span class="portfolio-tag">PatchVAE &middot; DiT &middot; CelebA</span></li>
+				<li><a href="#deep">Deepfake Detection</a><span class="portfolio-tag">VideoLaMA &middot; BLIP &middot; LLaVA</span></li>
+				<li><a href="#lda">Topic Modelling with LDA</a><span class="portfolio-tag">Gensim &middot; NLTK &middot; SpaCy</span></li>
+			</ul>
+		</div>
+
+		<div class="portfolio-card">
+			<div class="portfolio-card-header" style="border-left: 4px solid #ea580c;">
+				<span class="portfolio-icon">&#128421;</span> Systems & Data Engineering
+			</div>
+			<ul class="portfolio-list">
+				<li><a href="#thread">Multithreaded Image Blurring with POSIX Threads</a><span class="portfolio-tag">C++ &middot; POSIX &middot; Shared Memory</span></li>
+				<li><a href="#db">Scalable ETL Pipelines with Microsoft Azure</a><span class="portfolio-tag">ADF &middot; Databricks &middot; Synapse</span></li>
+			</ul>
+		</div>
+
+		<div class="portfolio-card">
+			<div class="portfolio-card-header" style="border-left: 4px solid #0891b2;">
+				<span class="portfolio-icon">&#128200;</span> Probability & Statistical Modeling
+			</div>
+			<ul class="portfolio-list">
+				<li><a href="#nbd">Analyzing Customer Behaviour: Choice of Phone Lines</a><span class="portfolio-tag">NBD &middot; Gamma &middot; Chi-Square</span></li>
+			</ul>
+		</div>
+
 	</div>
 	
 	
@@ -433,218 +475,246 @@ Check out my ongoing projects in the section below.
 
 	<h2>Project Descriptions</h2>
 
-	<!-- (* denotes equal contribution) -->
+	<div class="project-cards-container">
 
-	<ol>
-		<li id="particle">
-			<h3 style="font-weight: bold;">Particle Agent</h3>
-			<img src="assets/particle.png" alt="particle pic" style="width:450px;"><br>
+	<div class="project-card" id="particle">
+		<div class="project-summary">
+			<h3>Particle Agent</h3>
+			<span class="portfolio-tag">FastAPI &middot; LangChain &middot; Pinecone &middot; React &middot; TypeScript</span>
+			<ul>
+				<li>Engineered RAG for product queries with <b>OpenAI embeddings</b> and <b>Pinecone vector search</b> for &gt;97% retrieval accuracy and &lt;200ms response latency.</li>
+				<li>Implemented session-based memory with &gt;95% accurate follow-up handling and robust multi-turn interactions.</li>
+				<li>Developed a real-time chat frontend using <b>React</b>, <b>Vite</b>, and <b>TypeScript</b>.</li>
+			</ul>
+			<div class="project-links">
+				<a href="https://github.com/keyush06/Particle--A-PartSelect-Agent">code</a>
+			</div>
+			<button class="toggle-btn" onclick="toggleProject(this)">Show Details</button>
+			<a href="#portfolio" class="back-to-portfolio">Back to Portfolio</a>
+		</div>
+		<div class="project-details" style="display:none;">
+			<img src="assets/particle.png" alt="particle pic">
 			<h4 style="color: #0a2e76;">Backend Architecture & Technologies</h4>
-				<ul>
-					<li>Built a context-aware conversational agent for product and order support using <b>FastAPI</b>, <b>LangChain</b>, and <b>Pinecone</b>, enabling multi-turn chat for PartSelect customers.</li>
-					<li>Engineered Retrieval-Augmented Generation (RAG) for product queries, leveraging <b>OpenAI embeddings</b> and <b>Pinecone vector search</b> for &gt;97% relevant retrieval accuracy and &lt;200ms response latency.</li>
-					<li>Designed tool-based logic for transaction/order support, with LLM fallback for complex queries, improving answer accuracy by 40% and reducing manual intervention.</li>
-				</ul>
+			<ul>
+				<li>Built a context-aware conversational agent for product and order support using <b>FastAPI</b>, <b>LangChain</b>, and <b>Pinecone</b>, enabling multi-turn chat for PartSelect customers.</li>
+				<li>Engineered Retrieval-Augmented Generation (RAG) for product queries, leveraging <b>OpenAI embeddings</b> and <b>Pinecone vector search</b> for &gt;97% relevant retrieval accuracy and &lt;200ms response latency.</li>
+				<li>Designed tool-based logic for transaction/order support, with LLM fallback for complex queries, improving answer accuracy by 40% and reducing manual intervention.</li>
+			</ul>
+			<h4 style="color: #0a2e76;">Session Memory & Entity Resolution</h4>
+			<ul>
+				<li>Implemented session-based memory using <b>ConversationBufferMemory</b> and custom entity tracking, enabling &gt;95% accurate follow-up handling and robust multi-turn interactions.</li>
+				<li>Developed entity extraction and context reuse logic, reducing user friction and repeated clarification requests by 35%.</li>
+			</ul>
+			<h4 style="color: #0a2e76;">Data Ingestion & Privacy</h4>
+			<ul>
+				<li>Automated ingestion of synthetic product and transaction data into <b>Pinecone</b>, scaling to 1,000+ products and 5,000+ transactions, ensuring privacy compliance and rapid deployment.</li>
+				<li>Achieved 100% data coverage for all supported product and transaction queries.</li>
+			</ul>
+			<h4 style="color: #0a2e76;">Frontend Development</h4>
+			<ul>
+				<li>Developed a real-time chat frontend using <b>React</b>, <b>Vite</b>, and <b>TypeScript</b>, integrating <b>Axios</b> for backend communication and session management.</li>
+				<li>Enhanced support workflow efficiency by 40% and improved user satisfaction scores through responsive UI and seamless multi-turn chat experience.</li>
+			</ul>
+		</div>
+	</div>
 
-				<h4 style="color: #0a2e76;">Session Memory & Entity Resolution</h4>
-				<ul>
-					<li>Implemented session-based memory using <b>ConversationBufferMemory</b> and custom entity tracking, enabling &gt;95% accurate follow-up handling and robust multi-turn interactions.</li>
-					<li>Developed entity extraction and context reuse logic, reducing user friction and repeated clarification requests by 35%.</li>
-				</ul>
+	<div class="project-card" id="ride">
+		<div class="project-summary">
+			<h3>Ride Duration Prediction</h3>
+			<span class="portfolio-tag">XGBoost &middot; Hyperopt &middot; MLflow &middot; Airflow &middot; Docker &middot; Flask</span>
+			<ul>
+				<li>Tuned XGBoost and Random Forest models using <b>Hyperopt</b>, improving RMSE by ~30%.</li>
+				<li>Designed a modular ML pipeline using <b>Apache Airflow</b> with <b>Docker + CeleryExecutor</b>.</li>
+				<li>Deployed the trained model as a REST API using <b>Flask</b>, containerized with <b>Docker</b>.</li>
+			</ul>
+			<div class="project-links">
+				<a href="https://github.com/keyush06/MLOps-Model-Development-to-Production-deployment">code</a>
+			</div>
+			<button class="toggle-btn" onclick="toggleProject(this)">Show Details</button>
+			<a href="#portfolio" class="back-to-portfolio">Back to Portfolio</a>
+		</div>
+		<div class="project-details" style="display:none;">
+			<img src="assets/taxi.jpg" alt="taxi pic">
+			<h4 style="color: #0a2e76;">Model Development</h4>
+			<ul>
+				<li>Processed NYC taxi trip data with engineered features like pickup/dropoff zones and trip distance.</li>
+				<li>Tuned XGBoost and Random Forest models using <b>Hyperopt</b>, improving RMSE by ~30%.</li>
+				<li>Tracked all experiments, metrics, and artifacts using <b>MLflow</b>.</li>
+			</ul>
+			<h4 style="color: #0a2e76;">Pipeline Orchestration</h4>
+			<ul>
+				<li>Designed a modular ML pipeline using <b>Apache Airflow</b> to automate preprocessing and training stages.</li>
+				<li>Configured <b>Docker + CeleryExecutor</b> for reproducible, distributed task execution.</li>
+				<li>Used <b>XCom</b> for smooth data passing and monitoring through the DAG.</li>
+			</ul>
+			<h4 style="color: #0a2e76;">Experiment Management</h4>
+			<ul>
+				<li>Logged models to <b>MLflow Model Registry</b>, versioned them, and promoted top models to "Production" stage.</li>
+				<li>Enabled consistent experiment comparison and artifact retrieval.</li>
+			</ul>
+			<h4 style="color: #0a2e76;">Deployment</h4>
+			<ul>
+				<li>Deployed the trained model as a REST API using <b>Flask</b>, allowing real-time predictions via user input.</li>
+				<li>Containerized the app with <b>Docker</b> to simulate a real-world, always-on service.</li>
+			</ul>
+		</div>
+	</div>
 
-				<h4 style="color: #0a2e76;">Data Ingestion & Privacy</h4>
-				<ul>
-					<li>Automated ingestion of synthetic product and transaction data into <b>Pinecone</b>, scaling to 1,000+ products and 5,000+ transactions, ensuring privacy compliance and rapid deployment.</li>
-					<li>Achieved 100% data coverage for all supported product and transaction queries.</li>
-				</ul>
+	<div class="project-card" id="image-reconstruction">
+		<div class="project-summary">
+			<h3>Image Reconstruction using Diffusion Transformers</h3>
+			<span class="portfolio-tag">PatchVAE &middot; Diffusion Transformer &middot; CelebA</span>
+			<ul>
+				<li>Developed a PatchVAE model to encode facial features from the CelebA dataset, trained a Diffusion model on VAE latent representations.</li>
+				<li>Achieved an FID score of <b>14.2</b>, producing high-quality realistic face images.</li>
+			</ul>
+			<div class="project-links">
+				<a href="https://github.com/keyush06/DiT-Diffusion-Transformers">code</a>
+				<a href="https://arxiv.org/abs/2212.09748">Reference Paper</a>
+			</div>
+			<button class="toggle-btn" onclick="toggleProject(this)">Show Details</button>
+			<a href="#portfolio" class="back-to-portfolio">Back to Portfolio</a>
+		</div>
+		<div class="project-details" style="display:none;">
+			<img src="assets/celeb_diffusion.jpeg" alt="DiT pic">
+			<p>I developed a PatchVAE model to encode facial features from the CelebA dataset, followed by training a Diffusion model using the VAE’s latent representations. This approach successfully reconstructed and generated realistic human face images. The model achieved an impressive FID score of 14.2, highlighting its effectiveness in producing high-quality outputs.</p>
+		</div>
+	</div>
 
-				<h4 style="color: #0a2e76;">Frontend Development</h4>
-				<ul>
-					<li>Developed a real-time chat frontend using <b>React</b>, <b>Vite</b>, and <b>TypeScript</b>, integrating <b>Axios</b> for backend communication and session management.</li>
-					<li>Enhanced support workflow efficiency by 40% and improved user satisfaction scores through responsive UI and seamless multi-turn chat experience.</li>
-				</ul>
-			
-			<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
-	
-			<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
-			| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
-			| <a href="https://github.com/keyush06/Particle--A-PartSelect-Agent">code</a>
-			<!-- | <a href="https://arxiv.org/abs/2212.09748">Reference Paper</a> -->
-	
-			<!-- | <a href="https://relbench.stanford.edu">website</a>
-			| <a href="assets/2023_icml_rdl/cite.txt">cite</a> -->
-		</li>
+	<div class="project-card" id="instance-segmentation">
+		<div class="project-summary">
+			<h3>Instance Segmentation: By Location</h3>
+			<span class="portfolio-tag">ResNet &middot; FPN &middot; SOLO &middot; PyTorch</span>
+			<ul>
+				<li>Implemented an instance segmentation framework inspired by <b>SOLO</b> with ResNet backbone and Feature Pyramid Network.</li>
+				<li>End-to-end trainable system eliminating the need for bounding boxes or complex post-processing.</li>
+			</ul>
+			<div class="project-links">
+				<a href="https://github.com/keyush06/Segmenting-Objects-by-Location">code</a>
+				<a href="https://arxiv.org/abs/2106.15947">Reference Paper</a>
+			</div>
+			<button class="toggle-btn" onclick="toggleProject(this)">Show Details</button>
+			<a href="#portfolio" class="back-to-portfolio">Back to Portfolio</a>
+		</div>
+		<div class="project-details" style="display:none;">
+			<img src="assets/ins_segmentation.jpeg" alt="Instance Segmentation Pic">
+			<p>I implemented an advanced instance segmentation framework inspired by the SOLO (Segmenting Objects by Locations) model. It features a ResNet backbone for robust feature extraction and a Feature Pyramid Network (FPN) to handle multi-scale object representations efficiently.</p>
+			<p>The architecture consists of two main branches. The Category Prediction Branch assigns pixels to grid-based instance categories, leveraging spatial information to effectively localize and distinguish objects of varying sizes.</p>
+			<p>Meanwhile, the Mask Segmentation Branch generates accurate binary masks using a spatially sensitive, fully convolutional network, eliminating the need for traditional bounding boxes or complex post-processing.</p>
+			<p>This end-to-end trainable system simplifies the segmentation pipeline, learning directly from mask annotations to enhance efficiency and deliver high performance across diverse object segmentation tasks.</p>
+		</div>
+	</div>
 
-		<li id="ride">
-			<h3 style="font-weight: bold;">Ride Duration Prediction</h3>
-			<img src="assets\taxi.jpg" alt="taxi pic" style="width:450px;"><br>
-			 <h4 style="color: #0a2e76;">🧱Model Development</h4>
-				<ul>
-					<li>Processed NYC taxi trip data with engineered features like pickup/dropoff zones and trip distance.</li>
-					<li>Tuned XGBoost and Random Forest models using <b>Hyperopt</b>, improving RMSE by ~30%.</li>
-					<li>Tracked all experiments, metrics, and artifacts using <b>MLflow</b>.</li>
-				</ul>
+	<div class="project-card" id="depth">
+		<div class="project-summary">
+			<h3>Improving Depth Estimation of DINOv2</h3>
+			<span class="portfolio-tag">DINOv2 &middot; CNN Adapter &middot; Phase Correlation &middot; ORB</span>
+			<ul>
+				<li>Integrated a CNN-based adapter achieving a <b>23.8% reduction in MSE</b>, outperforming vanilla DINOv2-base while being faster.</li>
+				<li>Combined temporal information across frames to reduce per-frame errors and enhance depth map accuracy.</li>
+			</ul>
+			<div class="project-links">
+				<a href="https://github.com/keyush06/Improving-DINOv2-Depth-Estimates-by-Smoothing-Over-Consecutive-Frames">code</a>
+				<a href="https://github.com/keyush06/Improving-DINOv2-Depth-Estimates-by-Smoothing-Over-Consecutive-Frames/blob/master/Dino%20Features%20Research.pdf">Reference Paper</a>
+			</div>
+			<button class="toggle-btn" onclick="toggleProject(this)">Show Details</button>
+			<a href="#portfolio" class="back-to-portfolio">Back to Portfolio</a>
+		</div>
+		<div class="project-details" style="display:none;">
+			<img src="assets/de.jpeg" alt="depth estimation pic">
+			<p>The research demonstrated that combining temporal information across frames reduces per-frame errors, enhancing the scaling accuracy of depth maps. The project explored methods to improve depth estimation in DINOv2 using iterative strategies. Initially, ORB features and phase correlation were applied to align depth maps of consecutive frames explicitly. This approach leveraged the spatial shifts between frames to average depth maps and achieved modest reductions in MSE with minimal latency. However, limitations in alignment accuracy due to perspective distortions motivated further refinement.</p>
+			<p>Subsequently, a CNN-based adapter was integrated between the DINOv2 encoder and depth adapter. This adapter utilized phase-correlation-derived pixel shifts as additional input to adjust and combine DINO features from consecutive frames. The CNN introduced an inductive bias for local feature alignment, leading to a significant 23.8% reduction in MSE, outperforming vanilla DINOv2-base while being faster. Regularization techniques were later introduced to preserve high-resolution details in depth maps, improving output quality while maintaining accuracy.</p>
+		</div>
+	</div>
 
-			<h4 style="color: #0a2e76;">🧱 Pipeline Orchestration</h4>
-				<ul>
-					<li>Designed a modular ML pipeline using <b>Apache Airflow</b> to automate preprocessing and training stages.</li>
-					<li>Configured <b>Docker + CeleryExecutor</b> for reproducible, distributed task execution.</li>
-					<li>Used <b>XCom</b> for smooth data passing and monitoring through the DAG.</li>
-				</ul>
+	<div class="project-card" id="fitbit">
+		<div class="project-summary">
+			<h3>FitBit ChatBot</h3>
+			<span class="portfolio-tag">Django &middot; PostgreSQL &middot; LangChain</span>
+			<ul>
+				<li>Designed a Django-based AI chatbot for health-related conversations with <b>PostgreSQL</b> for patient data management.</li>
+				<li>Implemented dynamic entity extraction for medications and appointment preferences with automated escalation.</li>
+			</ul>
+			<div class="project-links">
+				<a href="https://github.com/keyush06/FitBit_ChatBot">code</a>
+			</div>
+			<button class="toggle-btn" onclick="toggleProject(this)">Show Details</button>
+			<a href="#portfolio" class="back-to-portfolio">Back to Portfolio</a>
+		</div>
+		<div class="project-details" style="display:none;">
+			<img src="assets/health Chatbot.jpeg" alt="healthcare bot">
+			<p>Designed and developed a Django-based AI chatbot for health-related conversations, integrating PostgreSQL for robust patient data management and Langchain for LLM-agnostic model orchestration. Implemented dynamic entity extraction to capture key details like medications and appointment preferences, optimized memory usage for long conversations, and enabled automated escalation of appointment and treatment requests.</p>
+		</div>
+	</div>
 
-			<h4 style="color: #0a2e76;">🧱 Experiment Management</h4>
-				<ul>
-					<li>Logged models to <b>MLflow Model Registry</b>, versioned them, and promoted top models to "Production" stage.</li>
-					<li>Enabled consistent experiment comparison and artifact retrieval.</li>
-				</ul>
+	<div class="project-card" id="thread">
+		<div class="project-summary">
+			<h3>Multithreaded Image Blurring with POSIX Threads</h3>
+			<span class="portfolio-tag">C++ &middot; POSIX Threads &middot; Shared Memory</span>
+			<ul>
+				<li>Achieved a <strong>2.8x speedup</strong> compared to the sequential baseline (from <strong>3251 ms to 1165 ms</strong>) using 4 threads.</li>
+				<li>Designed lock-free parallelism via <strong>shared memory</strong> without mutexes, restricting writes to thread-local output regions.</li>
+			</ul>
+			<div class="project-links">
+				<a href="https://github.com/keyush06/Image-Blurring-by-Multithreading">code</a>
+			</div>
+			<button class="toggle-btn" onclick="toggleProject(this)">Show Details</button>
+			<a href="#portfolio" class="back-to-portfolio">Back to Portfolio</a>
+		</div>
+		<div class="project-details" style="display:none;">
+			<img src="assets/threads.png" alt="threading img">
+			<ul>
+				<li>Developed a multithreaded image processing pipeline to apply a <strong>box blur</strong> on bitmap (BMP) images using <strong>POSIX threads</strong> in C++.</li>
+				<li>Achieved a <strong>2.8x speedup</strong> compared to the sequential baseline (from <strong>3251 ms to 1165 ms</strong>) on a quad-core CPU, using <strong>4 threads</strong> on a moderately large input image and a blur radius of 8.</li>
+				<li>Implemented <strong>dynamic workload partitioning</strong> by dividing the image into non-overlapping horizontal slices, assigned evenly across threads to eliminate write conflicts and maintain cache locality.</li>
+				<li>Managed per-thread argument structures using <strong>dynamically allocated memory.</strong></li>
+				<li>Designed the system to operate entirely in <strong>shared memory</strong> without mutexes by restricting writes to thread-local output regions, enabling lock-free parallelism.</li>
+				<li>Optimized memory access by ensuring threads performed <strong>read-only access</strong> on the input image and wrote exclusively to disjoint rows in the output buffer (<code>BitMap</code>), avoiding contention and ensuring correctness.</li>
+			</ul>
+		</div>
+	</div>
 
-			<h4 style="color: #0a2e76;">🧱 Deployment</h4>
-				<ul>
-					<li>Deployed the trained model as a REST API using <b>Flask</b>, allowing real-time predictions via user input.</li>
-					<li>Containerized the app with <b>Docker</b> to simulate a real-world, always-on service.</li>
-				</ul>
-			
-			<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
-	
-			<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
-			| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
-			| <a href="https://github.com/keyush06/MLOps-Model-Development-to-Production-deployment">code</a>
-			<!-- | <a href="https://arxiv.org/abs/2212.09748">Reference Paper</a> -->
-	
-			<!-- | <a href="https://relbench.stanford.edu">website</a>
-			| <a href="assets/2023_icml_rdl/cite.txt">cite</a> -->
-		</li>
+	<div class="project-card" id="db">
+		<div class="project-summary">
+			<h3>Scalable ETL Pipelines with Microsoft Azure</h3>
+			<span class="portfolio-tag">Azure Data Factory &middot; Databricks &middot; ADLS Gen2 &middot; Synapse</span>
+			<ul>
+				<li>Implemented a robust ETL pipeline using <b>Azure Data Factory</b> for automated data ingestion from HTTP and SQL sources.</li>
+				<li>Transformed data via <b>Azure Databricks</b> and loaded into <b>Synapse Analytics</b> for downstream analysis.</li>
+			</ul>
+			<div class="project-links">
+				<a href="https://github.com/keyush06/ETL-with-Azure-Data-Factory">code</a>
+			</div>
+			<button class="toggle-btn" onclick="toggleProject(this)">Show Details</button>
+			<a href="#portfolio" class="back-to-portfolio">Back to Portfolio</a>
+		</div>
+		<div class="project-details" style="display:none;">
+			<img src="assets/deng.jpeg" alt="data eng img">
+			<p>In this project, I implemented a robust ETL (Extract, Transform, Load) pipeline using Azure cloud services to process and analyze data efficiently. The pipeline began with data ingestion from HTTP sources and SQL databases. Using Azure Data Factory (ADF), I created linked services to connect to these data sources and developed data pipelines to automate the extraction of raw data. The ingested data was stored in Azure Data Lake Storage Gen2 (ADLS Gen2) as the raw data layer.</p>
+			<p>For data transformation, I utilized Azure Databricks, where the raw data was processed through data cleansing, aggregation, and feature engineering to prepare it for downstream analysis. The transformed data was then stored back in ADLS Gen2 in a structured format. Finally, the processed data was imported into Azure Synapse Analytics, where it was further analyzed. This comprehensive ETL pipeline enabled seamless data movement and transformation, leveraging Azure’s ecosystem for efficient data processing and analysis.</p>
+		</div>
+	</div>
 
-
-		<li id="image-reconstruction">
-			<h3 style="font-weight: bold;">Image Reconstruction using Diffusion Transformers</h3>
-			<img src="assets\celeb_diffusion.jpeg" alt="DiT pic" style="width:450px;"><br>
-			I developed a PatchVAE model to encode facial features from the CelebA dataset, followed by training a Diffusion model using the VAE's latent representations. This approach successfully reconstructed and generated realistic human face images. The model achieved an impressive FID score of 14.2, highlighting its effectiveness in producing high-quality outputs.<br>
-			<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
-	
-			<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
-			| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
-			| <a href="https://github.com/keyush06/DiT-Diffusion-Transformers">code</a>
-			| <a href="https://arxiv.org/abs/2212.09748">Reference Paper</a>
-	
-			<!-- | <a href="https://relbench.stanford.edu">website</a>
-			| <a href="assets/2023_icml_rdl/cite.txt">cite</a> -->
-		</li>
-
-	<li  id="instance-segmentation">
-		<h3 style="font-weight: bold;">Instance Segmentation: By location</h3>
-		<img src="assets\ins_segmentation.jpeg" alt="Intsance Segmentation Pic" style="width:450px;"><br>
-		I implemented an advanced instance segmentation framework inspired by the SOLO (Segmenting Objects by Locations) model. It features a ResNet backbone for robust feature extraction and a Feature Pyramid Network (FPN) to handle multi-scale object representations efficiently.
-
-		The architecture consists of two main branches. The Category Prediction Branch assigns pixels to grid-based instance categories, leveraging spatial information to effectively localize and distinguish objects of varying sizes. 
-	<p>Meanwhile, the Mask Segmentation Branch generates accurate binary masks using a spatially sensitive, fully convolutional network, eliminating the need for traditional bounding boxes or complex post-processing.
-
-		This end-to-end trainable system simplifies the segmentation pipeline, learning directly from mask annotations to enhance efficiency and deliver high performance across diverse object segmentation tasks.</p> <br>
-		<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
-
-		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
-		| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
-		| <a href="https://github.com/keyush06/Segmenting-Objects-by-Location">code</a>
-		| <a href="https://arxiv.org/abs/2106.15947">Reference Paper</a>
-
-		<!-- | <a href="https://relbench.stanford.edu">website</a>
-		| <a href="assets/2023_icml_rdl/cite.txt">cite</a> -->
-	</li>
-
-
-	<li  id="depth">
-		<h3 style="font-weight: bold;">Improving Depth Estimation of DinoV2</h3>
-		<img src="assets\de.jpeg" alt="depth estimation pic" style="width:450px;"><br>
-		<p>The research demonstrated that combining temporal information across frames reduces per-frame errors, enhancing the scaling accuracy of depth maps.  The project explored methods to improve depth estimation in DINOv2 using iterative strategies. Initially, ORB features and phase correlation were applied to align depth maps of consecutive frames explicitly. This approach leveraged the spatial shifts between frames to average depth maps and achieved modest reductions in MSE with minimal latency. However, limitations in alignment accuracy due to perspective distortions motivated further refinement.</p>
-
-		<p>Subsequently, a CNN-based adapter was integrated between the DINOv2 encoder and depth adapter. This adapter utilized phase-correlation-derived pixel shifts as additional input to adjust and combine DINO features from consecutive frames. The CNN introduced an inductive bias for local feature alignment, leading to a significant 23.8% reduction in MSE, outperforming vanilla DINOv2-base while being faster. Regularization techniques were later introduced to preserve high-resolution details in depth maps, improving output quality while maintaining accuracy.</p>
-		<br>
-		<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
-
-		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
-		| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
-		| <a href="https://github.com/keyush06/Improving-DINOv2-Depth-Estimates-by-Smoothing-Over-Consecutive-Frames">code</a>
-		| <a href="https://github.com/keyush06/Improving-DINOv2-Depth-Estimates-by-Smoothing-Over-Consecutive-Frames/blob/master/Dino%20Features%20Research.pdf">Reference Paper</a>
-
-		<!-- | <a href="https://relbench.stanford.edu">website</a>
-		| <a href="assets/2023_icml_rdl/cite.txt">cite</a> -->
-	</li>
-
-	<li id="fitbit">
-
-		<h3 style="font-weight: bold;">FitBit</h3>
-		<img src="assets\health Chatbot.jpeg" alt="healthcare bot" style="width:550px;"><br>
-		Designed and developed a Django-based AI chatbot for health-related conversations, integrating PostgreSQL for robust patient data management and Langchain for LLM-agnostic model orchestration. Implemented dynamic entity extraction to capture key details like medications and appointment preferences, optimized memory usage for long conversations, and enabled automated escalation of appointment and treatment requests.  <br>
-		<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
-
-		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
-		| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
-		| <a href="https://github.com/keyush06/FitBit_ChatBot">Github code</a>
-		<!-- | <a href="https://arxiv.org/abs/2106.15947">Reference Paper</a> -->
-
-
-	</li>
-
-	 <br>
-
-	<li id="thread">
-
-		<h3 style="font-weight: bold;">Multithreaded Image Blurring with POSIX Threads</h3>
-		<img src="assets\threads.png" alt="threading img" style="width:600px;"><br>
-		<ul>
-			<li>Developed a multithreaded image processing pipeline to apply a <strong>box blur</strong> on bitmap (BMP) images using <strong>POSIX threads</strong> in C++.</li>
-		
-			<li>Achieved a <strong>2.8x speedup</strong> compared to the sequential baseline (from <strong>3251 ms to 1165 ms</strong>) on a quad-core CPU, using <strong>4 threads</strong> on a moderately large input image and a blur radius of 8.</li>
-		
-			<li>Implemented <strong>dynamic workload partitioning</strong> by dividing the image into non-overlapping horizontal slices, assigned evenly across threads to eliminate write conflicts and maintain cache locality.</li>
-		
-			<li>Managed per-thread argument structures using <strong>dynamically allocated memory.</strong> </li>
-		
-			<li>Designed the system to operate entirely in <strong>shared memory</strong> without mutexes by restricting writes to thread-local output regions, enabling lock-free parallelism.</li>
-		
-			<li>Optimized memory access by ensuring threads performed <strong>read-only access</strong> on the input image and wrote exclusively to disjoint rows in the output buffer (<code>BitMap</code>), avoiding contention and ensuring correctness.</li>
-		  </ul>
-		<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
-
-		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
-		| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
-		| <a href="https://github.com/keyush06/Image-Blurring-by-Multithreading">Github code</a>
-		<!-- | <a href="https://arxiv.org/abs/2106.15947">Reference Paper</a> -->
-
-
-	</li>
-
-	<li id="db">
-
-		<h3 style="font-weight: bold;">Scalable ETL Pipelines with Microsoft Azure</h3>
-		<img src="assets\deng.jpeg" alt="data eng img" style="width:600px;"><br>
-		<p>In this project, I implemented a robust ETL (Extract, Transform, Load) pipeline using Azure cloud services to process and analyze data efficiently. The pipeline began with data ingestion from HTTP sources and SQL databases. Using Azure Data Factory (ADF), I created linked services to connect to these data sources and developed data pipelines to 
-		automate the extraction of raw data. The ingested data was stored in Azure Data Lake Storage Gen2 (ADLS Gen2) as the raw data layer.</p>
-	<p>For data transformation, I utilized Azure Databricks, where the raw data was processed through data cleansing, aggregation, 
-		and feature engineering to prepare it for downstream analysis. The transformed data was then stored back in ADLS Gen2 in a structured format.
-		Finally, the processed data was imported into Azure Synapse Analytics, where it was further analyzed. This comprehensive ETL pipeline 
-		enabled seamless data movement and transformation, leveraging Azure's ecosystem for efficient data processing and analysis. </p> 
-		<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
-
-		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
-		| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
-		| <a href="https://github.com/keyush06/ETL-with-Azure-Data-Factory">Github code</a>
-		<!-- | <a href="https://arxiv.org/abs/2106.15947">Reference Paper</a> -->
-	</li>
-
-	<br>
-
-	<li id="nbd">
-
-		<h3 style="font-weight: bold;">Analyzing Consumer Behavior in Mobile Plan Selection Using Statistical Modeling</h3>
-		<img src="assets\nbd.jpeg.png" alt="nbd picture" style="width:600px;"><br>
-		<h4>AIM</h4>
-		<p>The objective of this project is to analyze the distribution of the number of lines included in a customer's primary mobile phone plan. By leveraging statistical modeling, particularly Negative Binomial Distribution (NBD) variations, we aim to understand consumer behavior in selecting family or individual mobile plans. 
-			The analysis also seeks to determine underlying patterns in purchasing decisions, quantify market potential, and explore the heterogeneity within the dataset.</p>
-	
-		<h4>METHOD</h4>
-			<p> To analyze the dataset, we employed statistical modeling techniques focusing on count data. The primary methodology involved fitting different versions of the Negative Binomial Distribution (NBD) to account for observed trends:</p> <br>
-
+	<div class="project-card" id="nbd">
+		<div class="project-summary">
+			<h3>Analyzing Consumer Behavior in Mobile Plan Selection Using Statistical Modeling</h3>
+			<span class="portfolio-tag">NBD &middot; Gamma Distribution &middot; Chi-Square &middot; Q-Q Plots</span>
+			<ul>
+				<li>Fitted Shifted NBD, Truncated NBD, and Gamma models to understand consumer behavior in mobile plan selection.</li>
+				<li>Evaluated models using Q-Q plots, chi-square likelihood ratio tests, and p-value assessments.</li>
+			</ul>
+			<div class="project-links">
+				<a href="https://github.com/keyush06/Analyzing-Customer-Behaviour-using-Statistical-Modeling/tree/master/Analyzing%20Customer%20Behaviour%20-%20Choice%20of%20Phone%20lines">code</a>
+			</div>
+			<button class="toggle-btn" onclick="toggleProject(this)">Show Details</button>
+			<a href="#portfolio" class="back-to-portfolio">Back to Portfolio</a>
+		</div>
+		<div class="project-details" style="display:none;">
+			<img src="assets/nbd.jpeg.png" alt="nbd picture">
+			<h4>AIM</h4>
+			<p>The objective of this project is to analyze the distribution of the number of lines included in a customer’s primary mobile phone plan. By leveraging statistical modeling, particularly Negative Binomial Distribution (NBD) variations, we aim to understand consumer behavior in selecting family or individual mobile plans. The analysis also seeks to determine underlying patterns in purchasing decisions, quantify market potential, and explore the heterogeneity within the dataset.</p>
+			<h4>METHOD</h4>
+			<p>To analyze the dataset, we employed statistical modeling techniques focusing on count data. The primary methodology involved fitting different versions of the Negative Binomial Distribution (NBD) to account for observed trends:</p>
 			<ul>
 				<li><strong>Shifted NBD Model</strong> – Used to model the distribution, accounting for the absence of zero values in the dataset.</li>
 				<li><strong>Shifted NBD with a Spike at 1</strong> – Introduced to capture the segment of customers who strongly prefer single-line plans.</li>
@@ -652,151 +722,99 @@ Check out my ongoing projects in the section below.
 				<li><strong>Gamma Distribution Analysis</strong> – Applied to measure the propensity of customers to purchase more than four lines.</li>
 			</ul>
 			<p>Various model evaluation techniques, including Q-Q plots, chi-square likelihood ratio tests, and p-value assessments, were used to determine the fit and effectiveness of the models.</p>
-		<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
 			<h4>Conclusion</h4>
-			<p>Conclusion
-				The analysis confirmed that most customers opt for one to four lines per mobile plan, with a significant number of users preferring single-line plans due to convenience. 
-				The presence of a right-censored dataset and high homogeneity suggested that purchasing additional lines is influenced by external factors, such as social contagion, promotions, or family needs.</p>
-		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
-		| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
-		| <a href="https://github.com/keyush06/Analyzing-Customer-Behaviour-using-Statistical-Modeling/tree/master/Analyzing%20Customer%20Behaviour%20-%20Choice%20of%20Phone%20lines">Project Link</a>
-		<!-- | <a href="https://arxiv.org/abs/2106.15947">Reference Paper</a> -->
+			<p>The analysis confirmed that most customers opt for one to four lines per mobile plan, with a significant number of users preferring single-line plans due to convenience. The presence of a right-censored dataset and high homogeneity suggested that purchasing additional lines is influenced by external factors, such as social contagion, promotions, or family needs.</p>
+		</div>
+	</div>
 
+	<div class="project-card" id="deep">
+		<div class="project-summary">
+			<h3>Deepfake Detection</h3>
+			<span class="portfolio-tag">VideoLaMA &middot; BLIP &middot; LLaVA &middot; Kendall Tau</span>
+			<ul>
+				<li>Evaluated state-of-the-art Video Vision-Language Models for deepfake detection with synthetic data and annotated explanations.</li>
+				<li>Employed Kendall Tau’s correlation and reliability analysis to verify inter-annotator agreement on deformation labels.</li>
+			</ul>
+			<div class="project-links">
+				<a href="https://github.com/keyush06/Deepfake-Detection">code</a>
+			</div>
+			<button class="toggle-btn" onclick="toggleProject(this)">Show Details</button>
+			<a href="#portfolio" class="back-to-portfolio">Back to Portfolio</a>
+		</div>
+		<div class="project-details" style="display:none;">
+			<img src="assets/deep.jpeg" alt="deepfake pic">
+			<p>Deepfake detection research focuses on identifying and analyzing manipulated video content generated using advanced generative models. By curating extensive video datasets and developing innovative annotation frameworks, researchers aim to refine the detection of both visual and temporal artifacts. State-of-the-art Video Vision-Language Models (VLMs) such as VideoLaMA, BLIP, and LLaVA are evaluated by integrating synthetic data and annotated explanations to enhance the categorization of artifacts and improve detection accuracy. Additionally, methodologies like Kendall Tau’s correlation and reliability analysis are employed to verify data and align annotations. These techniques help assess inter-annotator agreement on deformation labels, providing robust benchmarks for evaluating the performance of current state-of-the-art detection models.</p>
+		</div>
+	</div>
 
-	</li>
+	<div class="project-card" id="traversability-estimation">
+		<div class="project-summary">
+			<h3>Traversability Estimation</h3>
+			<span class="portfolio-tag">Semantic Segmentation &middot; Attention-enhanced FCN</span>
+			<ul>
+				<li>Developed a terrain classification model using Semantic Segmentation and an attention-enhanced FCN, achieving a <b>2% improvement in IoU</b>.</li>
+				<li>Enhanced off-road navigation for autonomous vehicles by optimizing path planning and terrain adaptability.</li>
+			</ul>
+			<div class="project-links">
+				<a href="assets/Traversability Estimation/Report.pdf">paper</a>
+				<a href="https://github.com/keyush06/traversability_estimation">code</a>
+			</div>
+			<button class="toggle-btn" onclick="toggleProject(this)">Show Details</button>
+			<a href="#portfolio" class="back-to-portfolio">Back to Portfolio</a>
+		</div>
+		<div class="project-details" style="display:none;">
+			<img src="assets/OffRoadNavigation.jpeg" alt="Terrain Image">
+			<p>Developed a terrain classification model using Semantic Segmentation and an attention enhanced Fully Convolutional Network, achieving a 2% improvement in IoU. Enhanced off-road navigation for autonomous vehicles by optimizing path planning and terrain adaptability.</p>
+		</div>
+	</div>
 
-	<br>
+	<div class="project-card" id="pricePrediction">
+		<div class="project-summary">
+			<h3>Bangalore House Prediction</h3>
+			<span class="portfolio-tag">sklearn &middot; Linear Regression &middot; GridSearchCV &middot; Flask</span>
+			<ul>
+				<li>Built a ML model with <b>linear regression</b> and <b>GridSearchCV</b> for hyperparameter tuning, evaluated with k-fold cross-validation.</li>
+				<li>Deployed via <b>Flask</b> API with an HTML/CSS/JS frontend for dynamic price predictions.</li>
+			</ul>
+			<div class="project-links">
+				<a href="https://github.com/keyush06/Bangalore-HomePrice-prediction">code</a>
+			</div>
+			<button class="toggle-btn" onclick="toggleProject(this)">Show Details</button>
+			<a href="#portfolio" class="back-to-portfolio">Back to Portfolio</a>
+		</div>
+		<div class="project-details" style="display:none;">
+			<img src="assets/house.png" alt="house Image">
+			<p>In this project, a machine learning model was developed to predict house prices in Bangalore using the sklearn library. The dataset was sourced from Kaggle and preprocessed using NumPy and Pandas for data cleaning, including outlier detection, feature engineering, and dimensionality reduction. The model was built using linear regression, with hyperparameter tuning implemented through GridSearchCV and performance evaluated using k-fold cross-validation.</p>
+			<p>The application was powered by a Flask server, which acted as the backend to handle HTTP requests. The Flask server loaded the saved machine learning model and processed user inputs like square footage and number of bedrooms to return predicted prices. A front-end interface was built using HTML, CSS, and JavaScript, allowing users to input property details and retrieve price predictions dynamically via calls to the Flask API. The entire workflow integrated Python-based tools and libraries, offering a robust and user-friendly application for real estate price prediction.</p>
+		</div>
+	</div>
 
-	
-	<li id="deep">
+	<div class="project-card" id="lda">
+		<div class="project-summary">
+			<h3>Topic Modelling with Latent Dirichlet Allocation</h3>
+			<span class="portfolio-tag">Gensim &middot; NLTK &middot; SpaCy &middot; LDA</span>
+			<ul>
+				<li>Implemented LDA for topic modeling, classifying text into topics based on underlying word distributions.</li>
+				<li>Computed coherence and perplexity scores to optimize topic count; generated interactive visualizations.</li>
+			</ul>
+			<div class="project-links">
+				<a href="https://github.com/keyush06/Topic-Modelling-with-Latent-Dirichlet-Allocation-LDA-">code</a>
+			</div>
+			<button class="toggle-btn" onclick="toggleProject(this)">Show Details</button>
+			<a href="#portfolio" class="back-to-portfolio">Back to Portfolio</a>
+		</div>
+		<div class="project-details" style="display:none;">
+			<img src="assets/lda.png" alt="lda Image">
+			<p>This project focuses on implementing Latent Dirichlet Allocation (LDA) for topic modeling, a natural language processing technique that classifies text into topics based on the corpus’s underlying word distributions. Using libraries like NLTK, Gensim, and SpaCy, text preprocessing involved cleaning data with RegEx and preparing it for analysis.</p>
+			<p>Key steps included generating word clouds to visualize word frequency distributions, computing coherence and perplexity scores to optimize the number of topics, and identifying the dominant topic for each document along with its percentage contribution. The LDA model revealed the proportion of documents belonging to the top six dominant topics, facilitating deeper insights into the dataset’s structure. Interactive visualizations further enhanced the interpretability of the results, making the analysis accessible and insightful. This project demonstrated a robust approach to uncovering hidden thematic patterns in text data.</p>
+		</div>
+	</div>
 
-		<h3 style="font-weight: bold;">Deepfake Detection</h3>
-		<img src="assets\deep.jpeg" alt="deepfake pic" style="width:600px;"><br>
-		Deepfake detection research focuses on identifying and analyzing manipulated video content generated using advanced generative models. By curating extensive video datasets and developing innovative annotation frameworks, 
-		researchers aim to refine the detection of both visual and temporal artifacts. State-of-the-art Video Vision-Language Models (VLMs) such as 
-		VideoLaMA, BLIP, and LLaVA are evaluated by integrating synthetic data and annotated explanations to enhance the categorization of artifacts and improve detection accuracy. Additionally, methodologies like 
-		Kendall Tau’s correlation and reliability analysis are employed to verify data and align annotations. These techniques help assess inter-annotator agreement on deformation labels, 
-		providing robust benchmarks for evaluating the performance of current state-of-the-art detection models.
-		<br>
-		<!-- <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
-
-		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
-		| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
-		| <a href="https://github.com/keyush06/Deepfake-Detection">Github code</a>
-		<!-- | <a href="https://arxiv.org/abs/2106.15947">Reference Paper</a> -->
-
-
-	</li>
-
-
-
-
-	<!-- add this only when needed -->
-	<!-- <li>
-		<h3>Marvel Bot</h3>
-		<img src="assets/marvel.jpeg" alt="Marvel Image" style="width:300px;"><br>
-		Engineered a conversational LLM app using LangChain and RAG, integrating Ollama to optimize three quantized models. Web scraped 4+ Marvel Wikipedia pages and deployed the solution on Streamlit, ensuring real-time, context-aware responses and efficient memory usage. <br>
-		 <i>International Conference on Machine Learning (ICML), 2024</i><br> -->
-
-		<!-- <a href="assets/2024_icml_rdl/paper.pdf">paper</a>
-		| <a href="https://arxiv.org/abs/2312.04615">arxiv</a> -->
-		<!-- | <a href="https://github.com/keyush06/Marvel-bot-Conversational-RAG-based-LLM-application">code</a> -->
-		<!-- | <a href="https://relbench.stanford.edu">website</a>
-		| <a href="assets/2023_icml_rdl/cite.txt">cite</a> -->
-	<!-- </li> -->
-	<br>
-	<li id="traversability-estimation">
-		<h3 style="font-weight: bold;">Traversability Estimation</h3><br>
-		<img src="assets/OffRoadNavigation.jpeg" alt="Terrain Image" style="width:600px;"><br>
-		Developed a terrain classification model using Semantic Segmentation and an attention enhanced Fully Convolutional Network, achieving a 2% improvement in IoU. Enhanced off-road navigation for autonomous 
-		vehicles by optimizing path planning and terrain adaptability.<br>
-		<!-- <i>Advances in Neural Information Processing Systems (NeurIPS), 2022</i><br> -->
-
-		<a href="assets/Traversability Estimation/Report.pdf">paper</a>
-		| <a href="https://github.com/keyush06/traversability_estimation">code</a>
-		<!-- | <a href="https://openreview.net/forum?id=EqZuN4V_FLF">reviews</a>
-		| <a href="https://neurips.cc/media/PosterPDFs/NeurIPS%202022/53251.png?t=1669859105.1475148">poster</a>
-		| <a href="https://neurips.cc/virtual/2022/poster/53251">slides</a>
-		| <a href="https://github.com/dair-iitd/ilploss">code</a>
-		| <a href="assets/2022_neurips_ilploss/cite.txt">cite</a> -->
-	</li>
-
-	<br>
-	<li id="pricePrediction">
-		<h3 style="font-weight: bold;">Bangalore House Prediction</h3><br>
-		<img src="assets/house.png" alt="house Image" style="width:600px;"><br>
-		In this project, a machine learning model was developed to predict house prices in Bangalore using the sklearn library. The dataset was sourced from Kaggle and preprocessed using NumPy and Pandas for data cleaning, including outlier detection, feature engineering, and dimensionality reduction. The model was built using linear regression, with hyperparameter 
-		tuning implemented through GridSearchCV and performance evaluated using k-fold cross-validation.
-	<p>The application was powered by a Flask server, which acted as the backend to handle HTTP requests. The Flask server loaded the saved machine learning model and processed user inputs like square footage and number of bedrooms to return predicted prices. 
-		A front-end interface was built using HTML, CSS, and JavaScript, allowing users to 
-		input property details and retrieve price predictions dynamically via calls to the Flask API. The entire workflow integrated Python-based tools and libraries, offering a robust and user-friendly application for real estate price prediction.</p> <br>
-		<!-- <i>Advances in Neural Information Processing Systems (NeurIPS), 2022</i><br> -->
-
-		<!-- <a href="assets/Traversability Estimation/Report.pdf">paper</a> -->
-		| <a href="https://github.com/keyush06/Bangalore-HomePrice-prediction">code</a>
-		<!-- | <a href="https://openreview.net/forum?id=EqZuN4V_FLF">reviews</a>
-		| <a href="https://neurips.cc/media/PosterPDFs/NeurIPS%202022/53251.png?t=1669859105.1475148">poster</a>
-		| <a href="https://neurips.cc/virtual/2022/poster/53251">slides</a>
-		| <a href="https://github.com/dair-iitd/ilploss">code</a>
-		| <a h
-		
-		ref="assets/2022_neurips_ilploss/cite.txt">cite</a> -->
-	</li>
-	<br>
-	<li id="lda">
-		<h3 style="font-weight: bold;">Topic-Modelling-with-Latent-Dirichlet-Allocation</h3><br>
-		<img src="assets/lda.png" alt="lda Image" style="width:600px;"><br>
-		This project focuses on implementing Latent Dirichlet Allocation (LDA) for topic modeling, a natural language processing technique that classifies text into topics based on the corpus's underlying word distributions. Using libraries like NLTK, Gensim, and SpaCy, text preprocessing involved cleaning data with RegEx and preparing it for analysis.
-
-		Key steps included generating word clouds to visualize word frequency distributions, computing coherence and perplexity scores to optimize the number of topics, and identifying the dominant topic for each document along with its percentage contribution. 
-		The LDA model revealed the proportion of documents belonging to the top six dominant topics, facilitating 
-		deeper insights into the dataset's structure. Interactive visualizations further enhanced the interpretability of the results, making the analysis accessible and insightful. This project demonstrated a robust approach to uncovering hidden thematic patterns in text data.<br>
-				<!-- <i>Advances in Neural Information Processing Systems (NeurIPS), 2022</i><br> -->
-
-		<!-- <a href="assets/Traversability Estimation/Report.pdf">paper</a> -->
-		| <a href="https://github.com/keyush06/Topic-Modelling-with-Latent-Dirichlet-Allocation-LDA-">code</a>
-		<!-- | <a href="https://openreview.net/forum?id=EqZuN4V_FLF">reviews</a>
-		| <a href="https://neurips.cc/media/PosterPDFs/NeurIPS%202022/53251.png?t=1669859105.1475148">poster</a>
-		| <a href="https://neurips.cc/virtual/2022/poster/53251">slides</a>
-		| <a href="https://github.com/dair-iitd/ilploss">code</a>
-		| <a href="assets/2022_neurips_ilploss/cite.txt">cite</a> -->
-	</li>
-
-
-	<!-- <li>
-		<b>GREED: A Neural Framework for Learning Graph Distance Functions</b><br>
-		<u>Rishabh Ranjan</u>, Siddharth Grover, Sourav Medya, Venkatesan Chakaravarthy, Yogish Sabharwal, Sayan Ranu<br>
-		<i>Advances in Neural Information Processing Systems (NeurIPS), 2022</i><br>
-
-		<a href="assets/2022_neurips_greed/paper.pdf">paper</a>
-		| <a href="https://arxiv.org/abs/2112.13143">arxiv</a>
-		| <a href="https://openreview.net/forum?id=3LBxVcnsEkV">reviews</a>
-		| <a href="https://neurips.cc/media/PosterPDFs/NeurIPS%202022/54507.png?t=1669859442.0786178">poster</a>
-		| <a href="https://neurips.cc/virtual/2022/poster/54507">slides</a>
-		| <a href="https://github.com/idea-iitd/greed">code</a>
-		| <a href="assets/2022_neurips_greed/cite.txt">cite</a>
-	</li>
-
-	<li>
-		<b>Exploiting Epochs and Symmetries in Analysing MPI Programs</b><br>
-		<u>Rishabh Ranjan</u>, Ishita Agrawal, Subodh Sharma<br>
-		<i>IEEE/ACM International Conference on Automated Software Engineering (ASE), 2022</i><br>
-
-
-		<a href="assets/2022_ase_simian/paper.pdf">paper</a>
-		| <a href="https://github.com/rishabh-ranjan/simian">code</a>
-		| <a href="https://sat-smt-ws.gitlab.io/2020/programme.html">talk</a>
-		| <a href="assets/2022_ase_simian/cite.txt">cite</a>
-	</li> -->
-
-	</ol>
-
+	</div>
 
 	<footer>
 		Made with &#10084;&#65039; in plain HTML and CSS code
-
-		<!-- Made with &#10084;&#65039; in plain HTML and CSS (<a href="https://github.com/rishabh-ranjan/rishabh-ranjan.github.io">code</a>). -->
-	<footer>
+	</footer>
 </body>
 
 </html>
