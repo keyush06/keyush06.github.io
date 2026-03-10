@@ -46,7 +46,7 @@
 
 <p>
 	I truly believe that writing code is not the bottleneck with the advancements in LLMs, but the real interesting problem lies at the intersection of architectural design, systems thinking and applied AI
-	here architectural decisions determine whether an a system feels magical or broken. I enjoy building and transitioning from research-grade protoype models to product-grade systems.
+	where architectural decisions determine whether a system feels magical or broken. I enjoy building and transitioning from research-grade protoype models to product-grade systems.
 </p>
 
 <p>
@@ -223,8 +223,11 @@ Click the link below to take a look at my research interests and some questions 
 			// Only highlight actual project cards, not nav anchors
 			var target = document.getElementById(id);
 			if (target && target.classList.contains('project-card')) {
+				// Force reflow so animation replays even if class was just removed
+				void target.offsetWidth;
 				target.classList.add('project-highlight');
-				setTimeout(function() {
+				clearTimeout(target._highlightTimer);
+				target._highlightTimer = setTimeout(function() {
 					target.classList.remove('project-highlight');
 				}, 15000);
 			}
