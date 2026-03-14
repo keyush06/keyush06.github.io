@@ -32,8 +32,8 @@
   <a href="#about">About</a>
   <a href="#what-i-work-on">What I Work On</a>
   <a href="#experience">Experience</a>
-  <a href="#research">Research</a>
   <a href="#portfolio">Portfolio</a>
+  <a href="#research">Research</a>
   <a href="#publications">Publications</a>
 </nav>
 
@@ -140,46 +140,6 @@ where I was advised by Prof. <a href="https://www.cis.upenn.edu/~ungar/">Lyle Un
 	
 	
 	
-<h2 id="research">Research</h2> 
-
-Click the link below to take a look at my research interests and some questions that interest me.
-<br>
-<br>
-
-	
-
-	<!-- <section id="researchSection" style="display: none;"> -->
-		<h3 onclick="toggleSection()" 
-    style="text-decoration: underline; color: white; 
-           cursor: pointer; text-align: center; 
-           background-color: #063e75; padding: 15px; 
-           border-radius: 8px; width: 50%; 
-           margin: auto; font-size: 20px;">
-    Research Interests
-</h3>
-<br>
-<section id="researchSection" style="display: none; text-align: left; margin-top: 20px;">
-    <div style="width: 60%; margin: auto; padding: 15px; border: 2px solid #808080; border-radius: 8px; background-color: #f9f9f9;">
-			<p>
-				<strong>1. Vision-Language Understanding:</strong> I am interested in pursuing research on enhancing 
-				<strong>Vision-Language Models (VLMs)</strong> through Representation Learning and Transfer Learning, 
-				with a focus on <strong>Compositionality</strong>, <strong>Alignment</strong>, and <strong>Grounding</strong> 
-				to better integrate visual and textual data.
-			</p>
-		
-			<p>
-				<strong>2. Responsible VLMs:</strong> I aim to explore ways to address biases and hallucinations in 
-				VLMs by establishing benchmarks for fairer and more ethical systems, contributing to the 
-				development of inclusive and trustworthy Social AI.
-			</p>
-		
-			<p>
-				<strong>3. Datasets and Synthetic Data:</strong> I am keen on investigating the role of datasets in building 
-				VLMs, particularly the potential of synthetic data generation to overcome limitations and 
-				enable diverse, scalable, and high-quality training resources.
-			</p>
-	</section>
-	
 	<script>
 		function toggleSection() {
 			var section = document.getElementById("researchSection");
@@ -237,7 +197,7 @@ Click the link below to take a look at my research interests and some questions 
 			var id = window.location.hash.substring(1);
 			highlightProject(id);
 		});
-		// Also trigger on page load if there's a hash
+		// Also trigger on page load if there’s a hash
 		window.addEventListener('load', function() {
 			if (window.location.hash) {
 				var id = window.location.hash.substring(1);
@@ -245,188 +205,6 @@ Click the link below to take a look at my research interests and some questions 
 			}
 		});
 	</script>
-
-<!-- I work as an ML Researcher at the <a href="https://csl-lab-upenn.github.io/">Computational Social Listening Lab</a> 
-where I am advised by Prof. <a href="https://www.cis.upenn.edu/~ungar/">Lyle Ungar</a> and Prof. <a href="https://sharathg.cis.upenn.edu/">Sharath Guntuku</a>. My research projects are aimed at the intersection of AI, Healthcare and Social Science that align with my interests. 
-I apply NLP, machine learning, and data analytics to problems like predicting patient outcomes, analyzing healthcare disparities, and understanding mental health trends. 
-My work goes beyond research—it's about leveraging technology to drive real impact, improving decision-making and accessibility in the healthcare industry. -->
-
-Check out my ongoing projects in the section below.
-</p>
-
-
-	<h3 onclick="toggleResearchProjects()"
-    style="text-decoration: underline; color: white;
-           cursor: pointer; text-align: center;
-           background-color: #063e75; padding: 15px;
-           border-radius: 8px; width: 50%;
-           margin: auto; font-size: 20px;">
-    Current Research Projects
-</h3>
-<br>
-<section id="researchProjectsSection" style="display: none; text-align: left; margin-top: 20px;">
-	<div style="border: 2px solid #808080; padding: 15px; margin: 20px 0; border-radius: 8px;">
-        <p>
-			
-			<ul> 
-				<li>
-					<u><strong>IH Risk Model: </strong></u> 
-					<br>(I could not upload the source code due to confidentiality agreements but happy to walk through)
-					<br>
-					<br> In collaboration with <strong> Penn Medicine</strong>, I am working on developing a model to predict the risk of Incisional Hernia (IH) in patients post-surgery by using real-world operative notes and intraoperative EHR data.
-					<ul>
-						<li>
-							<strong>🔄 Reduced model tuning time by 10×</strong> by developing an <strong>AutoML pipeline</strong> using <strong>FLAML</strong> for risk prediction 
-							(<strong>recall = 0.90</strong>), enabling faster iteration over logistic and tree-based models.
-						</li>
-						<li>
-							<strong>Engineered few-shot GPT-4 pipelines</strong> to extract surgical features (e.g., <em>incision type</em>, <em>ostomy</em>, <em>closure</em>) from 10K+ operative notes, 
-							reducing noisy extractions by <strong>30%</strong> vs. RoBERTa-based baselines.
-						</li>
-						<li>
-							<strong>Modularized LLM backend</strong> to support <strong>OpenAI</strong> and <strong>Mistral</strong>; implemented 
-							<strong>parallelized batch inference</strong> and <strong>memory-efficient chunking</strong> to support large-scale processing.
-						</li>
-						<li>
-							<strong>📊 Visualized latent structure</strong> across surgical feature types using <strong>OpenAI text embeddings</strong>, <strong>PCA</strong>, and <strong>Seaborn</strong>. Applied 
-        					<strong>JSON schema validation</strong> using <code>jsonschema</code> to ensure extraction integrity.
-						</li>
-
-						<li>
-							<strong>Spun up a FastAPI server + TypeScript frontend for RAG workflow</strong>, slashing surgical data analysis time from hours to 
-									seconds through ChromaDB vector embeddings and GPT-4 integration.
-						</li>
-						</ul>
-
-				</li>
-				<li>
-					<u><strong>Misinformation: </strong></u><br>
-					<ul>
-						<li><u><strong>Research Goal:</strong></u> Working on identifying misinformation on social media (FB posts, YouTube interactions) and whether or not it relates to health outcomes for people categorized on the basis of race (white/black) & urbanity (rural/urban).</li>
-						
-						<li>Developed a URL based misinformation-detection model that detected around 1k misinformed posts out of 1mm FB posts.</li>
-						
-						<li>Implemented semantic similarity and entailment analysis using a pre-trained <strong>RoBERTa</strong> model to detect misinformation based on post alignment with trusted claims.</li>
-						
-						<li>Extracted linguistic features from posts using <strong><a href="https://dlatk.github.io/dlatk/tutorials.html" target="_blank">DLATK</a></strong> and applied LDA for topic modeling- computed Pearson’s Correlation for these topic distributions with depression scores computed from user surveys to identify key linguistic markers.</li>
-						
-						<li>Implemented sentiment analysis using a pre-trained ‘DistilBERT’ Transformer model to evaluate user emotions from social media posts, leading to insights on engagement patterns segmented by race and urbanity.</li>
-						
-						<li>Unified data from various online survey platforms in a secured server via MySQL and performed feature engineering in Pandas to prepare data for further downstream tasks.</li>
-					</ul>
-					
-				</li>
-				
-
-				<li>
-
-					<u><strong>"Agency" determination using NLP:  </strong></u> <br> In collaboration with the <Strong>Department of Psychology</Strong> at Penn, I aim to analyze the evolution of male and female <a href = "https://en.wikipedia.org/wiki/Agency_(psychology)">"Agency"</a> in historical texts using AI and NLP. Our multi-source dataset—magazines, movie scripts, and NYT bestsellers—is processed with OCR and SpaCy to extract linguistic structures. 
-					Leveraging GPT, we aim label agents (action-takers) and patients (acted-upon entities), revealing gendered patterns over time. This data-driven approach uncovers shifts in societal narratives, offering deep insights into cultural and historical trends.
-				</li>
-
-			</ul>
-		
-        </p>
-    </div>
-</section>
-
-
-	<!-- <div style="border: 2px solid #808080; padding: 15px; margin: 20px 0; border-radius: 8px;">
-		<h3 style="background-color: #003366; color: white; margin: -15px -15px 10px -15px; padding: 10px; border-radius: 8px 8px 0 0; text-align: center; font-size: 1.2em;">
-			Deviating from AI
-		</h3>
-		<p>
-			On the business end, I am familiar with leveraging statistical models to drive impactful business decisions, 
-			such as predicting customer lifetime value (CLV), performing customer segmentation, and developing forecasting models. 
-			Courses like Applied Statistical Models in Modelling at Wharton equipped me with advanced techniques for building 
-			behaviorally plausible models to explain and predict consumer patterns.
-		</p>
-	</div> -->
-	<!--<p>-->
-	<!--I am interested in deep learning research, with a recent focus on foundation models. In my past work, I have enjoyed forays into noisy data learning, graph ML, neuro-symbolic AI, and program analysis.-->
-	<!--</p>-->
-
-	<!-- <h2>news</h2>
-
-	<table>
-
-	<tr>
-		<th>Jul 30, 2024</th>
-		<td><a href="https://relbench.stanford.edu">RelBench</a> (v1) released.</td>
-	</tr>
-
-	<tr>
-		<th>May 1, 2024</th>
-		<td>Our <a href="assets/2024_icml_rdl/paper.pdf">Relational Deep Learning</a> position paper was accepted at ICML 2024.</td>
-	</tr>
-
-	<tr>
-		<th>Apr 11, 2024</th>
-		<td>My CMU work on <a href="https://arxiv.org/abs/2404.07815">Post-Hoc Reversal</a> is on arXiv.</td>
-	</tr>
-
-	<tr>
-		<th>Mar 18, 2024</th>
-		<td>I aligned with Prof. <a href=https://cs.stanford.edu/people/jure/">Jure Leskovec</a> as my PhD advisor.</td>
-	</tr>
-
-	<tr>
-		<th>Nov 28, 2023</th>
-		<td>Our <a href="https://arxiv.org/abs/2312.04615">Relational Deep Learning</a> paper was on the front page of <a href="https://news.ycombinator.com/item?id=38447338">Hacker News</a>.</td>
-	</tr>
-
-	<tr>
-		<th>Nov 27, 2023</th>
-		<td><a href="https://relbench.stanford.edu">RelBench</a> (Beta) released at Learning on Graphs (LoG) conference.</td>
-	</tr>
-
-	<tr>
-		<th>Sep 26, 2023</th>
-		<td>I started my PhD at Stanford.</td>
-	</tr>
-
-	<tr>
-		<th>Jul 15, 2023</th>
-		<td>This webpage is live.</td>
-	</tr>
-
-	</table> -->
-
-	
-	
-	
-
-
-	<div id="publications"></div>
-	<h3 onclick="togglePublications()"
-    style="text-decoration: underline; color: white;
-           cursor: pointer; text-align: center;
-           background-color: #063e75; padding: 15px;
-           border-radius: 8px; width: 50%;
-           margin: auto; font-size: 20px;">
-    Publication: Pre-prints
-</h3>
-<br>
-<section id="publicationsSection" style="display: none; text-align: left; margin-top: 20px;">
-	<div style="width: 60%; margin: auto; padding: 15px; border: 2px solid #808080; border-radius: 8px; background-color: #f9f9f9;">
-
-	(* denotes equal contribution)
-
-	<ol>
-
-	<li>
-		<b>Enhancing Retrieval in QA Systems with Derived Feature Association</b><br>
-		<u>Keyush Shah</u>, <u>Abhishek Goyal*</u>, <u>Isaac Wasserman*</u><br>
-		<i>arXiv preprint, 2024</i><br>
-
-		<a href="assets/neurips_2023.pdf">paper</a>
-		| <a href="https://arxiv.org/abs/2410.03754">arxiv</a>
-		| <a href="https://github.com/isaacwasserman/LongRAG">code</a>
-	</li>
-
-	</ol>
-	</div>
-</section>
 
 	<h2 id="portfolio">Portfolio of Selected Projects</h2>
 
@@ -494,6 +272,228 @@ Check out my ongoing projects in the section below.
 		</div>
 
 	</div>
+
+<h2 id="research">Research</h2>
+
+Click the link below to take a look at my research interests and some questions that interest me.
+<br>
+<br>
+
+
+
+	<!-- <section id="researchSection" style="display: none;"> -->
+		<h3 onclick="toggleSection()"
+    style="text-decoration: underline; color: white;
+           cursor: pointer; text-align: center;
+           background-color: #063e75; padding: 15px;
+           border-radius: 8px; width: 50%;
+           margin: auto; font-size: 20px;">
+    Research Interests
+</h3>
+<br>
+<section id="researchSection" style="display: none; text-align: left; margin-top: 20px;">
+    <div style="width: 60%; margin: auto; padding: 15px; border: 2px solid #808080; border-radius: 8px; background-color: #f9f9f9;">
+			<p>
+				<strong>1. Vision-Language Understanding:</strong> I am interested in pursuing research on enhancing
+				<strong>Vision-Language Models (VLMs)</strong> through Representation Learning and Transfer Learning,
+				with a focus on <strong>Compositionality</strong>, <strong>Alignment</strong>, and <strong>Grounding</strong>
+				to better integrate visual and textual data.
+			</p>
+
+			<p>
+				<strong>2. Responsible VLMs:</strong> I aim to explore ways to address biases and hallucinations in
+				VLMs by establishing benchmarks for fairer and more ethical systems, contributing to the
+				development of inclusive and trustworthy Social AI.
+			</p>
+
+			<p>
+				<strong>3. Datasets and Synthetic Data:</strong> I am keen on investigating the role of datasets in building
+				VLMs, particularly the potential of synthetic data generation to overcome limitations and
+				enable diverse, scalable, and high-quality training resources.
+			</p>
+	</section>
+
+<!-- I work as an ML Researcher at the <a href="https://csl-lab-upenn.github.io/">Computational Social Listening Lab</a>
+where I am advised by Prof. <a href="https://www.cis.upenn.edu/~ungar/">Lyle Ungar</a> and Prof. <a href="https://sharathg.cis.upenn.edu/">Sharath Guntuku</a>. My research projects are aimed at the intersection of AI, Healthcare and Social Science that align with my interests.
+I apply NLP, machine learning, and data analytics to problems like predicting patient outcomes, analyzing healthcare disparities, and understanding mental health trends.
+My work goes beyond research—it’s about leveraging technology to drive real impact, improving decision-making and accessibility in the healthcare industry. -->
+
+Check out my ongoing projects in the section below.
+</p>
+
+
+	<h3 onclick="toggleResearchProjects()"
+    style="text-decoration: underline; color: white;
+           cursor: pointer; text-align: center;
+           background-color: #063e75; padding: 15px;
+           border-radius: 8px; width: 50%;
+           margin: auto; font-size: 20px;">
+    Current Research Projects
+</h3>
+<br>
+<section id="researchProjectsSection" style="display: none; text-align: left; margin-top: 20px;">
+	<div style="border: 2px solid #808080; padding: 15px; margin: 20px 0; border-radius: 8px;">
+        <p>
+
+			<ul>
+				<li>
+					<u><strong>IH Risk Model: </strong></u>
+					<br>(I could not upload the source code due to confidentiality agreements but happy to walk through)
+					<br>
+					<br> In collaboration with <strong> Penn Medicine</strong>, I am working on developing a model to predict the risk of Incisional Hernia (IH) in patients post-surgery by using real-world operative notes and intraoperative EHR data.
+					<ul>
+						<li>
+							<strong>🔄 Reduced model tuning time by 10×</strong> by developing an <strong>AutoML pipeline</strong> using <strong>FLAML</strong> for risk prediction
+							(<strong>recall = 0.90</strong>), enabling faster iteration over logistic and tree-based models.
+						</li>
+						<li>
+							<strong>Engineered few-shot GPT-4 pipelines</strong> to extract surgical features (e.g., <em>incision type</em>, <em>ostomy</em>, <em>closure</em>) from 10K+ operative notes,
+							reducing noisy extractions by <strong>30%</strong> vs. RoBERTa-based baselines.
+						</li>
+						<li>
+							<strong>Modularized LLM backend</strong> to support <strong>OpenAI</strong> and <strong>Mistral</strong>; implemented
+							<strong>parallelized batch inference</strong> and <strong>memory-efficient chunking</strong> to support large-scale processing.
+						</li>
+						<li>
+							<strong>📊 Visualized latent structure</strong> across surgical feature types using <strong>OpenAI text embeddings</strong>, <strong>PCA</strong>, and <strong>Seaborn</strong>. Applied
+        					<strong>JSON schema validation</strong> using <code>jsonschema</code> to ensure extraction integrity.
+						</li>
+
+						<li>
+							<strong>Spun up a FastAPI server + TypeScript frontend for RAG workflow</strong>, slashing surgical data analysis time from hours to
+									seconds through ChromaDB vector embeddings and GPT-4 integration.
+						</li>
+						</ul>
+
+				</li>
+				<li>
+					<u><strong>Misinformation: </strong></u><br>
+					<ul>
+						<li><u><strong>Research Goal:</strong></u> Working on identifying misinformation on social media (FB posts, YouTube interactions) and whether or not it relates to health outcomes for people categorized on the basis of race (white/black) & urbanity (rural/urban).</li>
+
+						<li>Developed a URL based misinformation-detection model that detected around 1k misinformed posts out of 1mm FB posts.</li>
+
+						<li>Implemented semantic similarity and entailment analysis using a pre-trained <strong>RoBERTa</strong> model to detect misinformation based on post alignment with trusted claims.</li>
+
+						<li>Extracted linguistic features from posts using <strong><a href="https://dlatk.github.io/dlatk/tutorials.html" target="_blank">DLATK</a></strong> and applied LDA for topic modeling- computed Pearson’s Correlation for these topic distributions with depression scores computed from user surveys to identify key linguistic markers.</li>
+
+						<li>Implemented sentiment analysis using a pre-trained ‘DistilBERT’ Transformer model to evaluate user emotions from social media posts, leading to insights on engagement patterns segmented by race and urbanity.</li>
+
+						<li>Unified data from various online survey platforms in a secured server via MySQL and performed feature engineering in Pandas to prepare data for further downstream tasks.</li>
+					</ul>
+
+				</li>
+
+
+				<li>
+
+					<u><strong>"Agency" determination using NLP:  </strong></u> <br> In collaboration with the <Strong>Department of Psychology</Strong> at Penn, I aim to analyze the evolution of male and female <a href = "https://en.wikipedia.org/wiki/Agency_(psychology)">"Agency"</a> in historical texts using AI and NLP. Our multi-source dataset—magazines, movie scripts, and NYT bestsellers—is processed with OCR and SpaCy to extract linguistic structures.
+					Leveraging GPT, we aim label agents (action-takers) and patients (acted-upon entities), revealing gendered patterns over time. This data-driven approach uncovers shifts in societal narratives, offering deep insights into cultural and historical trends.
+				</li>
+
+			</ul>
+
+        </p>
+    </div>
+</section>
+
+
+	<!-- <div style="border: 2px solid #808080; padding: 15px; margin: 20px 0; border-radius: 8px;">
+		<h3 style="background-color: #003366; color: white; margin: -15px -15px 10px -15px; padding: 10px; border-radius: 8px 8px 0 0; text-align: center; font-size: 1.2em;">
+			Deviating from AI
+		</h3>
+		<p>
+			On the business end, I am familiar with leveraging statistical models to drive impactful business decisions,
+			such as predicting customer lifetime value (CLV), performing customer segmentation, and developing forecasting models.
+			Courses like Applied Statistical Models in Modelling at Wharton equipped me with advanced techniques for building
+			behaviorally plausible models to explain and predict consumer patterns.
+		</p>
+	</div> -->
+	<!--<p>-->
+	<!--I am interested in deep learning research, with a recent focus on foundation models. In my past work, I have enjoyed forays into noisy data learning, graph ML, neuro-symbolic AI, and program analysis.-->
+	<!--</p>-->
+
+	<!-- <h2>news</h2>
+
+	<table>
+
+	<tr>
+		<th>Jul 30, 2024</th>
+		<td><a href="https://relbench.stanford.edu">RelBench</a> (v1) released.</td>
+	</tr>
+
+	<tr>
+		<th>May 1, 2024</th>
+		<td>Our <a href="assets/2024_icml_rdl/paper.pdf">Relational Deep Learning</a> position paper was accepted at ICML 2024.</td>
+	</tr>
+
+	<tr>
+		<th>Apr 11, 2024</th>
+		<td>My CMU work on <a href="https://arxiv.org/abs/2404.07815">Post-Hoc Reversal</a> is on arXiv.</td>
+	</tr>
+
+	<tr>
+		<th>Mar 18, 2024</th>
+		<td>I aligned with Prof. <a href=https://cs.stanford.edu/people/jure/">Jure Leskovec</a> as my PhD advisor.</td>
+	</tr>
+
+	<tr>
+		<th>Nov 28, 2023</th>
+		<td>Our <a href="https://arxiv.org/abs/2312.04615">Relational Deep Learning</a> paper was on the front page of <a href="https://news.ycombinator.com/item?id=38447338">Hacker News</a>.</td>
+	</tr>
+
+	<tr>
+		<th>Nov 27, 2023</th>
+		<td><a href="https://relbench.stanford.edu">RelBench</a> (Beta) released at Learning on Graphs (LoG) conference.</td>
+	</tr>
+
+	<tr>
+		<th>Sep 26, 2023</th>
+		<td>I started my PhD at Stanford.</td>
+	</tr>
+
+	<tr>
+		<th>Jul 15, 2023</th>
+		<td>This webpage is live.</td>
+	</tr>
+
+	</table> -->
+
+
+
+
+
+
+	<div id="publications"></div>
+	<h3 onclick="togglePublications()"
+    style="text-decoration: underline; color: white;
+           cursor: pointer; text-align: center;
+           background-color: #063e75; padding: 15px;
+           border-radius: 8px; width: 50%;
+           margin: auto; font-size: 20px;">
+    Publication: Pre-prints
+</h3>
+<br>
+<section id="publicationsSection" style="display: none; text-align: left; margin-top: 20px;">
+	<div style="width: 60%; margin: auto; padding: 15px; border: 2px solid #808080; border-radius: 8px; background-color: #f9f9f9;">
+
+	(* denotes equal contribution)
+
+	<ol>
+
+	<li>
+		<b>Enhancing Retrieval in QA Systems with Derived Feature Association</b><br>
+		<u>Keyush Shah</u>, <u>Abhishek Goyal*</u>, <u>Isaac Wasserman*</u><br>
+		<i>arXiv preprint, 2024</i><br>
+
+		<a href="assets/neurips_2023.pdf">paper</a>
+		| <a href="https://arxiv.org/abs/2410.03754">arxiv</a>
+		| <a href="https://github.com/isaacwasserman/LongRAG">code</a>
+	</li>
+
+	</ol>
+	</div>
+</section>
 	
 	
 
