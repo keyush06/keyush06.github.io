@@ -141,6 +141,57 @@ where I was advised by Prof. <a href="https://www.cis.upenn.edu/~ungar/">Lyle Un
 	
 	
 	<script>
+		// resume switching logic
+		(function resumeswitch(){
+			var params = new URLSearchParams(window.location.search);
+			var version = params.get("v"); // returns mle, swe or null
+		
+
+		// Persist to local storage and not the session storage so that it persists even if the URL is bookmarked or shared without the query parameter
+		if (version){
+			localStorage.setItem(
+				'siteVersion', version
+			)
+		}
+
+		version = localStorage.getItem('siteVersion') || 'swe'; // default to swe if not set
+
+		/* 
+		Anatomy of a URL
+
+					https://keyush06.github.io/?v=mle#about
+					└─┬──┘  └───────┬────────┘└──┬──┘└──┬─┘
+					protocol      hostname     search   hash
+							└────────────┬───────────┘
+										origin
+		*/
+
+		if (params.has('v')){
+			history.replaceState(
+				{},
+				'',
+				window.location.origin + window.location.pathname + window.location.hash
+			)
+		}
+
+		// now we look for all the links with the CSS atributor in the DOM, and append the version based on the 
+		
+		var resume_path = {
+			'swe': 'assets/Resume__Keyush_EWS.pdf',
+			'mle': 'assets/Resume__Keyush_ELM.pdf'
+		};
+
+		var target = resume_path[version] || resume_path['swe']; // default to swe if version is not recognized
+		if (target){
+			var all_links = document.querySelectorAll('a[href="assets/Resume__Keyush_EWS.pdf"]');
+			all_links.forEach(function(link) {
+				link.href = target;
+			});
+		}
+	})();
+
+
+
 		function toggleSection() {
 			var section = document.getElementById("researchSection");
 			if (section.style.display === "none") {
