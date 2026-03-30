@@ -284,6 +284,7 @@ where I was advised by Prof. <a href="https://www.cis.upenn.edu/~ungar/">Lyle Un
 				<span class="portfolio-icon">&#129302;</span> AI Engineering / LLMs
 			</div>
 			<ul class="portfolio-list">
+				<li><a href="#surgical-extraction">Surgical Note Extraction System</a><span class="portfolio-tag">LLM Chains &middot; FastAPI &middot; TypeScript</span></li>
 				<li><a href="#particle">Particle Agent</a><span class="portfolio-tag">FastAPI &middot; LangChain &middot; Pinecone &middot; React</span></li>
 				<li><a href="#fitbit">FitBit ChatBot</a><span class="portfolio-tag">Django &middot; LangChain &middot; PostgreSQL</span></li>
 			</ul>
@@ -397,32 +398,23 @@ Check out my ongoing projects in the section below.
 			<ul>
 				<li>
 					<u><strong>IH Risk Model: </strong></u>
-					<br>(I could not upload the source code due to confidentiality agreements but happy to walk through)
+					<br>(Source code under confidentiality — happy to walk through the system design)
 					<br>
-					<br> In collaboration with <strong> Penn Medicine</strong>, I am working on developing a model to predict the risk of Incisional Hernia (IH) in patients post-surgery by using real-world operative notes and intraoperative EHR data.
+					<br> In collaboration with <strong>Penn Medicine</strong>, developed a predictive system for Incisional Hernia (IH) risk using real-world operative notes and intraoperative EHR data.
 					<ul>
 						<li>
-							<strong>🔄 Reduced model tuning time by 10×</strong> by developing an <strong>AutoML pipeline</strong> using <strong>FLAML</strong> for risk prediction
-							(<strong>recall = 0.90</strong>), enabling faster iteration over logistic and tree-based models.
+							<strong>Reduced model tuning time by 10x</strong> by developing an <strong>AutoML pipeline</strong> using <strong>sklearn</strong> for hernia prediction (<strong>recall: 0.9</strong>).
 						</li>
 						<li>
-							<strong>Engineered few-shot GPT-4 pipelines</strong> to extract surgical features (e.g., <em>incision type</em>, <em>ostomy</em>, <em>closure</em>) from 10K+ operative notes,
-							reducing noisy extractions by <strong>30%</strong> vs. RoBERTa-based baselines.
+							Deployed <strong>GPT-4 few-shot pipeline</strong> on <strong>10k+ redacted surgical notes</strong>, reducing <strong>30% noise vs. BERT</strong> for feature labeling.
 						</li>
 						<li>
-							<strong>Modularized LLM backend</strong> to support <strong>OpenAI</strong> and <strong>Mistral</strong>; implemented
-							<strong>parallelized batch inference</strong> and <strong>memory-efficient chunking</strong> to support large-scale processing.
+							Integrated <strong>vLLM</strong> &amp; <strong>LangChain</strong> for scalable local LLM inference deployed on <strong>A100 GPU</strong> and <strong>modularized the backend</strong> (OpenAI, Mistral) using <strong>parallelized batch inference</strong> and <strong>memory-aware chunking</strong> across variable length notes.
 						</li>
 						<li>
-							<strong>📊 Visualized latent structure</strong> across surgical feature types using <strong>OpenAI text embeddings</strong>, <strong>PCA</strong>, and <strong>Seaborn</strong>. Applied
-        					<strong>JSON schema validation</strong> using <code>jsonschema</code> to ensure extraction integrity.
+							Spun up a <strong>FastAPI server + TypeScript frontend for RAG workflow</strong>, slashing surgical data analysis time from <strong>hours to seconds</strong> through <strong>ChromaDB</strong> vector embeddings and <strong>GPT-4</strong> integration.
 						</li>
-
-						<li>
-							<strong>Spun up a FastAPI server + TypeScript frontend for RAG workflow</strong>, slashing surgical data analysis time from hours to
-									seconds through ChromaDB vector embeddings and GPT-4 integration.
-						</li>
-						</ul>
+					</ul>
 
 				</li>
 				<li>
@@ -560,6 +552,40 @@ Check out my ongoing projects in the section below.
 	<h2>Project Descriptions</h2>
 
 	<div class="project-cards-container">
+
+	<div class="project-card" id="surgical-extraction">
+		<div class="project-summary">
+			<h3>Surgical Note Extraction System</h3>
+			<span class="portfolio-tag">LLM Chains &middot; FastAPI &middot; TypeScript &middot; GPT-4 &middot; Clinical NLP</span>
+			<ul>
+				<li>Built an end-to-end system that extracts structured surgical data from unstructured operative notes using a <b>10-step sequential LLM chain</b>, replacing manual clinician review.</li>
+				<li>Designed a <b>posthoc rule engine with 20+ clinical validation rules</b> enforcing mutual exclusivity, edge-case handling, and fallback logic for surgical concepts.</li>
+				<li>Implemented an <b>LLM-as-judge evaluation layer</b> that reviews each extraction step, flags low-confidence outputs, and surfaces reasoning logs for human-in-the-loop review.</li>
+			</ul>
+			<div class="project-links">
+			</div>
+			<button class="toggle-btn" onclick="toggleProject(this)">Show Details</button>
+			<a href="#portfolio" class="back-to-portfolio">Back to Portfolio</a>
+		</div>
+		<div class="project-details" style="display:none;">
+			<h4 style="color: #0a2e76;">Sequential LLM Chain Architecture</h4>
+			<ul>
+				<li>Designed a <b>10-step sequential LLM pipeline</b> where each step's output feeds into the next, progressively building a complete surgical annotation with fields like surgical approach, incision type, tissue-layer-specific suture patterns, sizes, and types.</li>
+				<li>Handled subtle clinical distinctions - e.g., correctly differentiating a "diagnostic laparoscopy converted to open" versus a "laparoscopic procedure with extraction site" - and assigning sutures to the correct tissue layers based on anatomical logic.</li>
+			</ul>
+			<h4 style="color: #0a2e76;">Clinical Validation Engine</h4>
+			<ul>
+				<li>Engineered a <b>posthoc rule engine with 20+ clinical validation rules</b> that enforce mutual exclusivity across fields, handle edge cases in surgical terminology, and apply fallback logic when LLM outputs are ambiguous.</li>
+				<li>Reduced manual review from <b>days to a couple of hours</b> of LLM processing, drastically accelerating the annotation pipeline.</li>
+			</ul>
+			<h4 style="color: #0a2e76;">LLM-as-Judge Evaluation Layer</h4>
+			<ul>
+				<li>Implemented a separate <b>LLM-as-judge</b> that reviews each extraction step's output against the source operative note, generating detailed reasoning logs explaining why each field was assigned its value.</li>
+				<li>The judge <b>flags low-confidence extractions</b> and highlights potential errors, surfacing these to the clinical team so they review only flagged cases rather than re-reading entire operative notes.</li>
+				<li>Dramatically reduced the review burden - clinicians focus on flagged cases with the LLM's reasoning already laid out, instead of manually reviewing every note.</li>
+			</ul>
+		</div>
+	</div>
 
 	<div class="project-card" id="particle">
 		<div class="project-summary">
