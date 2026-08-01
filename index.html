@@ -198,7 +198,26 @@ where I was advised by Prof. <a href="https://www.cis.upenn.edu/~ungar/">Lyle Un
 		}
 	})();
 
+		// research-only view: https://keyush06.github.io/?view=research
+		// shows ONLY the Research section — no photo/name header, no resume link,
+		// no nav, no experience/portfolio — with both research boxes expanded
+		document.addEventListener('DOMContentLoaded', function researchOnlyView() {
+			var params = new URLSearchParams(window.location.search);
+			if (params.get('view') !== 'research') return;
 
+			Array.prototype.slice.call(document.body.childNodes).forEach(function(node) {
+				if (node.nodeType === Node.ELEMENT_NODE) {
+					if (node.id === 'research-block' || node.tagName === 'SCRIPT') return;
+					node.style.display = 'none';
+				} else if (node.nodeType === Node.TEXT_NODE) {
+					// stray text sitting directly in <body> outside the research block
+					node.textContent = '';
+				}
+			});
+
+			document.getElementById('researchSection').style.display = 'block';
+			document.getElementById('researchProjectsSection').style.display = 'block';
+		});
 
 		function toggleSection() {
 			var section = document.getElementById("researchSection");
@@ -333,6 +352,7 @@ where I was advised by Prof. <a href="https://www.cis.upenn.edu/~ungar/">Lyle Un
 
 	</div>
 
+<div id="research-block">
 <h2 id="research">Research</h2>
 
 Click the link below to take a look at my research interests and some questions that interest me.
@@ -447,6 +467,7 @@ Check out my ongoing projects in the section below.
         </p>
     </div>
 </section>
+</div>
 
 
 	<!-- <div style="border: 2px solid #808080; padding: 15px; margin: 20px 0; border-radius: 8px;">
