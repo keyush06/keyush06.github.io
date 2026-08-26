@@ -14,7 +14,7 @@
 
 	<h1>Keyush</h1>
 
-	<h3>
+	<h3 id="header-links">
 		<a href="assets/Resume__Keyush_EWS.pdf" class="red-link">Resume</a>
 		| <a href="https://scholar.google.com/citations?user=MLffnpkAAAAJ&hl=en" class="red-link">Google Scholar</a>
 		| <a href="https://github.com/keyush06" class="red-link">Github</a>
@@ -198,7 +198,41 @@ where I was advised by Prof. <a href="https://www.cis.upenn.edu/~ungar/">Lyle Un
 		}
 	})();
 
+		// research-only view: https://keyush06.github.io/?view=research
+		// keeps the photo, name, and personal links (Scholar/Github/LinkedIn/Email),
+		// drops the Resume + Portfolio links, and shows ONLY the Research section
+		// (no nav, no experience/portfolio) with both research boxes expanded
+		document.addEventListener('DOMContentLoaded', function researchOnlyView() {
+			var params = new URLSearchParams(window.location.search);
+			if (params.get('view') !== 'research') return;
 
+			var keepIds = ['profile_pic', 'header-links', 'research-block'];
+			Array.prototype.slice.call(document.body.childNodes).forEach(function(node) {
+				if (node.nodeType === Node.ELEMENT_NODE) {
+					if (keepIds.indexOf(node.id) !== -1) return;
+					if (node.tagName === 'H1' || node.tagName === 'SCRIPT') return;
+					node.style.display = 'none';
+				} else if (node.nodeType === Node.TEXT_NODE) {
+					// stray text sitting directly in <body> outside the kept elements
+					node.textContent = '';
+				}
+			});
+
+			// rebuild the header links without the Resume and Portfolio entries
+			var header = document.getElementById('header-links');
+			var keptLinks = Array.prototype.filter.call(header.querySelectorAll('a'), function(a) {
+				var href = a.getAttribute('href') || '';
+				return href.indexOf('Resume') === -1 && href !== '#portfolio';
+			});
+			header.innerHTML = '';
+			keptLinks.forEach(function(a, i) {
+				if (i > 0) header.appendChild(document.createTextNode(' | '));
+				header.appendChild(a);
+			});
+
+			document.getElementById('researchSection').style.display = 'block';
+			document.getElementById('researchProjectsSection').style.display = 'block';
+		});
 
 		function toggleSection() {
 			var section = document.getElementById("researchSection");
@@ -333,6 +367,7 @@ where I was advised by Prof. <a href="https://www.cis.upenn.edu/~ungar/">Lyle Un
 
 	</div>
 
+<div id="research-block">
 <h2 id="research">Research</h2>
 
 Click the link below to take a look at my research interests and some questions that interest me.
@@ -447,6 +482,7 @@ Check out my ongoing projects in the section below.
         </p>
     </div>
 </section>
+</div>
 
 
 	<!-- <div style="border: 2px solid #808080; padding: 15px; margin: 20px 0; border-radius: 8px;">
