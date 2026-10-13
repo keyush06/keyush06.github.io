@@ -453,12 +453,168 @@ html { scroll-behavior: smooth; }
     transform: translateY(-2px);
 }
 
-/* ── "What I Work On" heading ── */
-.what-i-work-on-heading {
+/* ── "What I Work On" + "News" headings ── */
+.what-i-work-on-heading,
+.news-heading {
     font-size: 1.8em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #1c1c1c;
     margin-top: 2em;
+}
+
+/* ── News: newest-first timeline ── */
+.news-section {
+    clear: both; /* never wrap beside the floated profile photo */
+}
+
+.news-list {
+    list-style: none;
+    margin: 1rem 0 2rem 0.4rem;
+    padding: 0;
+    border-left: 2px solid #c7d7f5; /* the timeline rail */
+}
+
+.news-item {
+    position: relative;
+    display: flex;
+    align-items: baseline;
+    gap: 1.1rem;
+    margin: 0 0 1rem 1.25rem;
+    padding: 0.9rem 1.2rem;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    transition: box-shadow 0.2s ease;
+}
+
+.news-item:last-child {
+    margin-bottom: 0;
+}
+
+.news-item:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* dot centred on the rail: 1.25rem item offset + 1px item border + 8px half-dot + 1px half-rail */
+.news-item::before {
+    content: "";
+    position: absolute;
+    left: calc(-1.25rem - 10px);
+    top: 1.15rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #2563eb;
+    border: 2px solid #fff;
+}
+
+.news-date {
+    flex: 0 0 5.2rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #2563eb;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+}
+
+.news-body {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.news-body p {
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .news-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+    }
+    .news-date {
+        flex-basis: auto;
+    }
+}
+
+/* ── Publications (inside the Research section, always visible) ── */
+.pub-section {
+    margin-top: 2.5rem;
+}
+
+.pub-heading {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #1c1c1c;
+    margin: 0 0 1rem 0;
+}
+
+.pub-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.pub-item {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #2563eb;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin: 0 0 1rem 0;
+    transition: box-shadow 0.2s ease;
+}
+
+.pub-item:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.pub-title {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #1e293b;
+    line-height: 1.4;
+}
+
+.pub-authors {
+    margin-top: 0.35rem;
+    font-size: 0.88rem;
+    color: #475569;
+    line-height: 1.5;
+}
+
+.pub-authors b {
+    color: #1e293b;
+}
+
+.pub-venue {
+    margin: 0.5rem 0 0.65rem 0;
+}
+
+.pub-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: #2563eb;
+    background: #eef4ff;
+    border: 1px solid #93b4f5;
+    border-radius: 999px;
+    padding: 0.1rem 0.6rem;
+}
+
+.pub-item .project-links {
+    margin-bottom: 0;
+}
+
+.pub-note {
+    margin: 0.25rem 0 0 0;
+    font-size: 0.8rem;
+    color: #64748b;
 }
 
 /* ── Cloud / floating boxes ── */

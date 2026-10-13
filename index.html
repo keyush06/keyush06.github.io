@@ -30,6 +30,7 @@
 
 <nav class="section-nav">
   <a href="#about">About</a>
+  <a href="#news">News</a>
   <a href="#what-i-work-on">What I Work On</a>
   <a href="#experience">Experience</a>
   <a href="#portfolio">Portfolio</a>
@@ -55,9 +56,29 @@ where I was advised by Prof. <a href="https://www.cis.upenn.edu/~ungar/">Lyle Un
 <!-- My research projects are aimed at the intersection of AI & Healthcare that align with my interests. 
   I apply advanced <b>natural language processing (NLP)</b>, <b>machine learning</b>, and <b>data analytics</b> to drive impact in areas such as
   <b>patient outcome prediction</b>, <b>healthcare disparity analysis</b>, and <b>behavioral and mental health monitoring</b>. -->
-  
-  
+
+
 	</p>
+
+
+<!-- News / what I've been up to - newest first. To add an item, copy one <li> block to the top of the list. -->
+<section id="news" class="news-section">
+  <h2 class="news-heading">News</h2>
+  <ul class="news-list">
+    <li class="news-item">
+      <time class="news-date" datetime="2026-10">Oct 2026</time>
+      <div class="news-body">
+        <p>&#127908; Attended <b>COLM 2026</b> at the Hilton San Francisco for our <a href="#publications">paper</a> on human-perceived fakeness in AI-generated videos.</p>
+      </div>
+    </li>
+    <li class="news-item">
+      <time class="news-date" datetime="2026-07">Jul 2026</time>
+      <div class="news-body">
+        <p>&#127942; Our Penn Medicine <a href="#surgical-extraction">LLM work on operative notes</a> won <b>1st place, Best Resident &amp; Fellow Abstract</b> at the <b>MedStar Research Symposium</b>.</p>
+      </div>
+    </li>
+  </ul>
+</section>
 
 
 <h2 id="what-i-work-on" class="what-i-work-on-heading">What I Work On</h2>
@@ -244,14 +265,6 @@ where I was advised by Prof. <a href="https://www.cis.upenn.edu/~ungar/">Lyle Un
 		}
 		function toggleResearchProjects() {
 			var section = document.getElementById("researchProjectsSection");
-			if (section.style.display === "none") {
-				section.style.display = "block";
-			} else {
-				section.style.display = "none";
-			}
-		}
-		function togglePublications() {
-			var section = document.getElementById("publicationsSection");
 			if (section.style.display === "none") {
 				section.style.display = "block";
 			} else {
@@ -482,6 +495,39 @@ Check out my ongoing projects in the section below.
         </p>
     </div>
 </section>
+
+<!-- Publications - always visible, newest first, part of the Research section -->
+<section id="publications" class="pub-section">
+	<h3 class="pub-heading">Publications</h3>
+	<ol class="pub-list">
+		<li class="pub-item">
+			<div class="pub-title">Learning Human-Perceived Fakeness in AI-Generated Videos via Multimodal LLMs</div>
+			<div class="pub-authors">
+				Xingyu Fu, Siyi Liu, Yinuo Xu, Pan Lu, Guangqiuse Hu, Tianbo Yang, Taran Anantasagar, Christopher Shen,
+				Yikai Mao, Yuanzhe Liu, <b>Keyush Shah</b>, Chung Un Lee, Yejin Choi, James Zou, Dan Roth, Chris Callison-Burch
+			</div>
+			<div class="pub-venue"><span class="pub-badge">COLM 2026</span></div>
+			<div class="project-links">
+				<a href="https://arxiv.org/pdf/2509.22646">paper</a>
+				<a href="https://arxiv.org/abs/2509.22646">arxiv</a>
+				<a href="https://deeptracereward.github.io/">project page</a>
+			</div>
+		</li>
+		<li class="pub-item">
+			<div class="pub-title">Enhancing Retrieval in QA Systems with Derived Feature Association</div>
+			<div class="pub-authors">
+				<b>Keyush Shah</b>, Abhishek Goyal*, Isaac Wasserman*
+			</div>
+			<div class="pub-venue"><span class="pub-badge">arXiv 2024</span></div>
+			<div class="project-links">
+				<a href="assets/neurips_2023.pdf">paper</a>
+				<a href="https://arxiv.org/abs/2410.03754">arxiv</a>
+				<a href="https://github.com/isaacwasserman/LongRAG">code</a>
+			</div>
+		</li>
+	</ol>
+	<p class="pub-note">* denotes equal contribution</p>
+</section>
 </div>
 
 
@@ -549,40 +595,6 @@ Check out my ongoing projects in the section below.
 
 
 
-
-
-	<div id="publications"></div>
-	<h3 onclick="togglePublications()"
-    style="text-decoration: underline; color: white;
-           cursor: pointer; text-align: center;
-           background-color: #063e75; padding: 15px;
-           border-radius: 8px; width: 50%;
-           margin: auto; font-size: 20px;">
-    Publication: Pre-prints
-</h3>
-<br>
-<section id="publicationsSection" style="display: none; text-align: left; margin-top: 20px;">
-	<div style="width: 60%; margin: auto; padding: 15px; border: 2px solid #808080; border-radius: 8px; background-color: #f9f9f9;">
-
-	(* denotes equal contribution)
-
-	<ol>
-
-	<li>
-		<b>Enhancing Retrieval in QA Systems with Derived Feature Association</b><br>
-		<u>Keyush Shah</u>, <u>Abhishek Goyal*</u>, <u>Isaac Wasserman*</u><br>
-		<i>arXiv preprint, 2024</i><br>
-
-		<a href="assets/neurips_2023.pdf">paper</a>
-		| <a href="https://arxiv.org/abs/2410.03754">arxiv</a>
-		| <a href="https://github.com/isaacwasserman/LongRAG">code</a>
-	</li>
-
-	</ol>
-	</div>
-</section>
-	
-	
 
 
 	<h2>Project Descriptions</h2>
