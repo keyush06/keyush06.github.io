@@ -165,7 +165,7 @@ where I was advised by Prof. <a href="https://www.cis.upenn.edu/~ungar/">Lyle Un
 		// resume switching logic
 		(function resumeswitch(){
 			var params = new URLSearchParams(window.location.search);
-			var version = params.get("v"); // returns mle, swe or null
+			var version = params.get("v"); // returns mle, swe, res or null
 		
 
 		// Persist to local storage and not the session storage so that it persists even if the URL is bookmarked or shared without the query parameter
@@ -199,7 +199,8 @@ where I was advised by Prof. <a href="https://www.cis.upenn.edu/~ungar/">Lyle Un
 		
 		var resume_path = {
 			'swe': 'assets/Resume__Keyush_EWS.pdf',
-			'mle': 'assets/Resume__Keyush_ELM.pdf'
+			'mle': 'assets/Resume__Keyush_ELM.pdf',
+			'res': 'assets/Resume__Keyush_EWSR.pdf'
 		};
 
 		var target = resume_path[version] || resume_path['swe']; // default to swe if version is not recognized
